@@ -1,24 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.MainActivity">
     <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="#21b589">
         <android.support.design.widget.TabLayout
             android:id="@+id/tab_layout"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="?attr/actionBarSize"
+            app:tabMode="scrollable"
+            app:tabIndicatorColor="@android:color/white"
+            app:tabIndicatorHeight="6dp"
+            app:tabSelectedTextColor="@android:color/white"
+            app:tabTextColor="#90dac4"/>
         <ImageView
+            android:layout_marginLeft="80dp"
             android:id="@+id/user_btn"
             android:layout_width="23dp"
             android:layout_height="23dp"
             android:src="@mipmap/ic_def_user_smallstroke"
             android:background="@mipmap/ic_def_user_small" />
         <ImageView
+            android:layout_marginLeft="20dp"
             android:id="@+id/search_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -31,4 +41,4 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-</RelativeLayout>
+</LinearLayout>

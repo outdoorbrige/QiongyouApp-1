@@ -17,7 +17,13 @@ import com.example.xiaohan_lh.qiongyouapp.view.RecommendView;
 public class RecommendFragment extends Fragment implements RecommendView {
 
 
-    public RecommendFragment() {
+    public static RecommendFragment newInstance() {
+        
+        Bundle args = new Bundle();
+        
+        RecommendFragment fragment = new RecommendFragment();
+        fragment.setArguments(args);
+        return fragment;
     }
 
 

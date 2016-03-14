@@ -17,8 +17,13 @@ import com.example.xiaohan_lh.qiongyouapp.view.CommunityView;
 public class CommunityFragment extends Fragment implements CommunityView {
 
 
-    public CommunityFragment() {
-        // Required empty public constructor
+    public static CommunityFragment newInstance() {
+        
+        Bundle args = new Bundle();
+        
+        CommunityFragment fragment = new CommunityFragment();
+        fragment.setArguments(args);
+        return fragment;
     }
 
 
