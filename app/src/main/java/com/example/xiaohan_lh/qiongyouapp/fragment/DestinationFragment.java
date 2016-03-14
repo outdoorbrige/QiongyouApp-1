@@ -17,8 +17,13 @@ import com.example.xiaohan_lh.qiongyouapp.view.DestinationView;
 public class DestinationFragment extends Fragment implements DestinationView{
 
 
-    public DestinationFragment() {
-        // Required empty public constructor
+    public static DestinationFragment newInstance() {
+
+        Bundle args = new Bundle();
+
+        DestinationFragment fragment = new DestinationFragment();
+        fragment.setArguments(args);
+        return fragment;
     }
 
 
