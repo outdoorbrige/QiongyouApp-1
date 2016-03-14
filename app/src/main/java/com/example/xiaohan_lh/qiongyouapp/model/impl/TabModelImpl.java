@@ -1,6 +1,7 @@
 package com.example.xiaohan_lh.qiongyouapp.model.impl;
 
 import com.example.xiaohan_lh.qiongyouapp.api.RetrofitServerApi;
+import com.example.xiaohan_lh.qiongyouapp.bean.DestinationEntity;
 import com.example.xiaohan_lh.qiongyouapp.bean.TabCommunityEntity;
 import com.example.xiaohan_lh.qiongyouapp.bean.TabDestinationEntity;
 import com.example.xiaohan_lh.qiongyouapp.bean.TabRecommendEntity;
@@ -31,7 +32,7 @@ public class TabModelImpl implements TabModel {
     }
 
     @Override
-    public void destination(Callback<TabDestinationEntity> callback) {
+    public void destination(Callback<DestinationEntity> callback) {
         retrofitServer.getTabDestination().enqueue(callback);
     }
 

@@ -1,5 +1,6 @@
 package com.example.xiaohan_lh.qiongyouapp.model;
 
+import com.example.xiaohan_lh.qiongyouapp.bean.DestinationEntity;
 import com.example.xiaohan_lh.qiongyouapp.bean.TabCommunityEntity;
 import com.example.xiaohan_lh.qiongyouapp.bean.TabDestinationEntity;
 import com.example.xiaohan_lh.qiongyouapp.bean.TabRecommendEntity;
@@ -12,6 +13,6 @@ import retrofit2.Callback;
  */
 public interface TabModel {
     public void recommend(Callback<TabRecommendEntity> callback);
-    public void destination(Callback<TabDestinationEntity> callback);
+    public void destination(Callback<DestinationEntity> callback);
     public void community(Callback<TabCommunityEntity> callback);
 }

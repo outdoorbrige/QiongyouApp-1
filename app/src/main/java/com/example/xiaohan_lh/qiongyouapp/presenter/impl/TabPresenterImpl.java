@@ -2,6 +2,7 @@ package com.example.xiaohan_lh.qiongyouapp.presenter.impl;
 
 import android.view.View;
 
+import com.example.xiaohan_lh.qiongyouapp.bean.DestinationEntity;
 import com.example.xiaohan_lh.qiongyouapp.bean.TabCommunityEntity;
 import com.example.xiaohan_lh.qiongyouapp.bean.TabDestinationEntity;
 import com.example.xiaohan_lh.qiongyouapp.bean.TabRecommendEntity;
@@ -47,15 +48,15 @@ public class TabPresenterImpl implements TabPresenter {
 
     @Override
     public void getDestination() {
-        Callback<TabDestinationEntity> callback = new Callback<TabDestinationEntity>() {
+        Callback<DestinationEntity> callback = new Callback<DestinationEntity>() {
             @Override
-            public void onResponse(Call<TabDestinationEntity> call, Response<TabDestinationEntity> response) {
-                TabDestinationEntity tabDestinationEntity = response.body();
+            public void onResponse(Call<DestinationEntity> call, Response<DestinationEntity> response) {
+                DestinationEntity tabDestinationEntity = response.body();
                 ((DestinationView) view).destinationSueccess(tabDestinationEntity);
             }
 
             @Override
-            public void onFailure(Call<TabDestinationEntity> call, Throwable t) {
+            public void onFailure(Call<DestinationEntity> call, Throwable t) {
                 view.fail(t);
             }
         };

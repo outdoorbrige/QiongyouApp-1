@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.xiaohan_lh.qiongyouapp.R;
+import com.example.xiaohan_lh.qiongyouapp.bean.DestinationEntity;
 import com.example.xiaohan_lh.qiongyouapp.bean.TabDestinationEntity;
 import com.example.xiaohan_lh.qiongyouapp.view.DestinationView;
 
@@ -17,20 +18,23 @@ import com.example.xiaohan_lh.qiongyouapp.view.DestinationView;
 public class DestinationFragment extends Fragment implements DestinationView{
 
 
-    public DestinationFragment() {
-        // Required empty public constructor
+    public static DestinationFragment newInstance(){
+        Bundle bundle = new Bundle();
+        DestinationFragment fragment = new DestinationFragment();
+        fragment.setArguments(bundle);
+        return fragment;
     }
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_destination, container, false);
+        View view = inflater.inflate(R.layout.fragment_destination,container,false);
+        return view;
     }
 
     @Override
-    public void destinationSueccess(TabDestinationEntity tabDestinationEntity) {
+    public void destinationSueccess(DestinationEntity destinationEntity) {
 
     }
 
