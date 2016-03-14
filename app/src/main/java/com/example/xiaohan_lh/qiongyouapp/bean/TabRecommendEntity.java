@@ -5,7 +5,7 @@ import java.util.List;
 /**
  * Created by xiaohan-lh on 16/3/14.
  */
-public class TabRecommend {
+public class TabRecommendEntity {
 
     /**
      * status : 1

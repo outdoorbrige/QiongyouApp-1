@@ -8,11 +8,13 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.xiaohan_lh.qiongyouapp.R;
+import com.example.xiaohan_lh.qiongyouapp.bean.TabDestinationEntity;
+import com.example.xiaohan_lh.qiongyouapp.view.DestinationView;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class DestinationFragment extends Fragment {
+public class DestinationFragment extends Fragment implements DestinationView{
 
 
     public DestinationFragment() {
@@ -27,4 +29,13 @@ public class DestinationFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_destination, container, false);
     }
 
+    @Override
+    public void destinationSueccess(TabDestinationEntity tabDestinationEntity) {
+
+    }
+
+    @Override
+    public void fail(Throwable t) {
+
+    }
 }

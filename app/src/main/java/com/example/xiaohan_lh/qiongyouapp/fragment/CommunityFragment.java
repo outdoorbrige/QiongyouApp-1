@@ -8,11 +8,13 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.xiaohan_lh.qiongyouapp.R;
+import com.example.xiaohan_lh.qiongyouapp.bean.TabCommunityEntity;
+import com.example.xiaohan_lh.qiongyouapp.view.CommunityView;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class CommunityFragment extends Fragment {
+public class CommunityFragment extends Fragment implements CommunityView {
 
 
     public CommunityFragment() {
@@ -27,4 +29,13 @@ public class CommunityFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_community, container, false);
     }
 
+    @Override
+    public void communitySueccess(TabCommunityEntity tabCommunityEntity) {
+
+    }
+
+    @Override
+    public void fail(Throwable t) {
+
+    }
 }
