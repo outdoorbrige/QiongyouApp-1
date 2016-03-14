@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.xiaohan_lh.qiongyouapp.R;
+import com.example.xiaohan_lh.qiongyouapp.bean.DestinationEntity;
 import com.example.xiaohan_lh.qiongyouapp.bean.TabDestinationEntity;
 import com.example.xiaohan_lh.qiongyouapp.view.DestinationView;
 import com.facebook.drawee.view.SimpleDraweeView;
@@ -24,9 +25,12 @@ import butterknife.ButterKnife;
 public class DestinationFragment extends Fragment implements DestinationView{
 
 
-    public DestinationFragment() {
-        // Required empty public constructor
-    }
+   public static DestinationFragment newInstance(){
+       Bundle args = new Bundle();
+       DestinationFragment fragment = new DestinationFragment();
+       fragment.setArguments(args);
+       return fragment;
+   }
 
 
     @Override
@@ -37,7 +41,7 @@ public class DestinationFragment extends Fragment implements DestinationView{
     }
 
     @Override
-    public void destinationSueccess(TabDestinationEntity tabDestinationEntity) {
+    public void destinationSueccess(DestinationEntity tabDestinationEntity) {
 
     }
 
