@@ -8,11 +8,13 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.xiaohan_lh.qiongyouapp.R;
+import com.example.xiaohan_lh.qiongyouapp.bean.TabRecommendEntity;
+import com.example.xiaohan_lh.qiongyouapp.view.RecommendView;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class RecommendFragment extends Fragment {
+public class RecommendFragment extends Fragment implements RecommendView {
 
 
     public RecommendFragment() {
@@ -25,4 +27,13 @@ public class RecommendFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_recommend, container, false);
     }
 
+    @Override
+    public void RecommenndSueccess(TabRecommendEntity tabRecommendEntity) {
+
+    }
+
+    @Override
+    public void fail(Throwable t) {
+
+    }
 }
