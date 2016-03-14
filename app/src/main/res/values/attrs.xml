@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ImageTxtView">
+        <attr name="image_src" format="reference"/>
+        <attr name="image_txt" format="string"/>
+        <attr name="image_gap" format="dimension"/>
+        <attr name="image_txtColor" format="color"/>
+        <attr name="image_txtSize" format="dimension"/>
+    </declare-styleable>
+</resources>

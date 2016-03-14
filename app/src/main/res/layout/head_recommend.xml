@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/ad_viewPager"
+            android:layout_width="match_parent"
+            android:layout_height="200dp" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:background="@null"
+            android:padding="15dp"
+            android:src="@mipmap/ic_home_checkin" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ad_viewPager"
+            android:paddingBottom="13dp"
+            android:paddingTop="13dp">
+
+            <com.example.xiaohan_lh.qiongyouapp.customize.ImageTxtView
+                android:id="@+id/pack_itv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:onClick=""
+                app:image_src="@mipmap/ic_home_jinnang_normal"
+                app:image_txt="看锦囊"
+                app:image_txtSize="7sp" />
+
+            <com.example.xiaohan_lh.qiongyouapp.customize.ImageTxtView
+                android:id="@+id/sale_itv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                app:image_src="@mipmap/ic_home_sale_normal"
+                app:image_txt="抢折扣"
+                app:image_txtSize="7sp" />
+
+            <com.example.xiaohan_lh.qiongyouapp.customize.ImageTxtView
+                android:id="@+id/hotel_itv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                app:image_src="@mipmap/ic_home_hotel_normal"
+                app:image_txt="定酒店"
+                app:image_txtSize="7sp" />
+
+            <com.example.xiaohan_lh.qiongyouapp.customize.ImageTxtView
+                android:id="@+id/travel_itv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                app:image_src="@mipmap/pin_00000"
+                app:image_txt="旅途中"
+                app:image_txtSize="7sp" />
+        </LinearLayout>
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>
