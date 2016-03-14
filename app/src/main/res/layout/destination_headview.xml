@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:background="@mipmap/bg_dest_tab_worldmap"
+    android:layout_height="wrap_content">
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/radioGroup"></RadioGroup>
+
+    <RadioButton
+        android:id="@+id/destina_head_nobtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableTop="@drawable/destinationheadrabtn"
+        android:button="@null"
+        android:textSize="0dp"
+        android:layout_marginLeft="45dp"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="37dp"
+        android:layout_below="@+id/radioGroup"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+    <TextView
+        android:id="@+id/destina_head_notxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/destina_head_nobtn"
+        android:layout_alignRight="@id/destina_head_nobtn"
+        android:layout_alignTop="@id/destina_head_nobtn"
+        android:paddingTop="12dp"
+        android:paddingLeft="9dp"
+        android:text="北美洲"/>
+
+    <RadioButton
+        android:id="@+id/destina_head_sabtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableTop="@drawable/destinationheadrabtn"
+        android:button="@null"
+        android:textSize="0dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginLeft="90dp"
+         />
+    <TextView
+        android:id="@+id/destina_head_satxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/destina_head_sabtn"
+        android:layout_alignRight="@id/destina_head_sabtn"
+        android:layout_alignTop="@id/destina_head_sabtn"
+        android:paddingTop="12dp"
+        android:paddingLeft="9dp"
+        android:text="南美洲"/>
+
+    <RadioButton
+        android:id="@+id/destina_head_eurbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableTop="@drawable/destinationheadsmallrebtn"
+        android:button="@null"
+        android:textSize="0dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginLeft="180dp"
+         />
+    <TextView
+        android:id="@+id/destina_head_eurtxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/destina_head_eurbtn"
+        android:layout_alignRight="@id/destina_head_eurbtn"
+        android:layout_alignTop="@id/destina_head_eurbtn"
+        android:paddingTop="12dp"
+        android:paddingLeft="9dp"
+        android:text="欧洲"/>
+
+    <RadioButton
+        android:id="@+id/destina_head_afbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableTop="@drawable/destinationheadsmallrebtn"
+        android:button="@null"
+        android:textSize="0dp"
+        android:layout_marginTop="98dp"
+        android:layout_marginLeft="175dp"
+         />
+    <TextView
+        android:id="@+id/destina_head_aftxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/destina_head_afbtn"
+        android:layout_alignRight="@id/destina_head_afbtn"
+        android:layout_alignTop="@id/destina_head_afbtn"
+        android:paddingTop="12dp"
+        android:paddingLeft="9dp"
+        android:text="非洲"/>
+
+    <RadioButton
+        android:id="@+id/destina_head_asbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableTop="@drawable/destinationheadsmallrebtn"
+        android:button="@null"
+        android:textSize="0dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginLeft="260dp"
+         />
+    <TextView
+        android:id="@+id/destina_head_astxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/destina_head_asbtn"
+        android:layout_alignRight="@id/destina_head_asbtn"
+        android:layout_alignTop="@id/destina_head_asbtn"
+        android:paddingTop="12dp"
+        android:paddingLeft="9dp"
+        android:text="亚洲"/>
+
+
+    <RadioButton
+        android:id="@+id/destina_head_ocbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableTop="@drawable/destinationheadrabtn"
+        android:button="@null"
+        android:textSize="0dp"
+        android:layout_marginLeft="282dp"
+        android:layout_marginTop="100dp"
+        android:layout_below="@+id/radioGroup"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+    <TextView
+        android:id="@+id/destina_head_octxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/destina_head_ocbtn"
+        android:layout_alignRight="@id/destina_head_ocbtn"
+        android:layout_alignTop="@id/destina_head_ocbtn"
+        android:paddingTop="12dp"
+        android:paddingLeft="9dp"
+        android:text="大洋洲"/>
+
+    <RadioButton
+        android:id="@+id/destina_head_anbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableTop="@drawable/destinationheadrabtn"
+        android:button="@null"
+        android:textSize="0dp"
+        android:layout_marginLeft="245dp"
+        android:layout_marginTop="165dp"
+        android:layout_below="@+id/radioGroup"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+    <TextView
+        android:id="@+id/destina_head_antxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/destina_head_anbtn"
+        android:layout_alignRight="@id/destina_head_anbtn"
+        android:layout_alignTop="@id/destina_head_anbtn"
+        android:paddingTop="12dp"
+        android:paddingLeft="9dp"
+        android:text="南极洲"/>
+
+
+</RelativeLayout>
