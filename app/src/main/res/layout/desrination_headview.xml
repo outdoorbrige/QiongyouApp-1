@@ -30,7 +30,7 @@
                 android:layout_alignBaseline="@+id/destina_headview_rabtn"
                 android:layout_alignBottom="@+id/destina_headview_rabtn"
                 android:layout_alignLeft="@+id/destina_headview_rabtn"
-                android:layout_alignStart="@+id/destina_headview_rabtn" />
+                android:layout_alignRight="@+id/destina_headview_rabtn" />
 
 
         </RelativeLayout>
