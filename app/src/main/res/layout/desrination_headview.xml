@@ -7,33 +7,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/radioGroup">
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <RadioButton
-                android:id="@+id/destina_headview_rabtn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:button="@null"
-                android:drawableTop="@drawable/destinationheadrabtn"
-                android:textSize="0dp"
-                android:layout_marginLeft="41dp"
-                android:layout_marginStart="41dp"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:checked="false" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="北美洲"
-                android:layout_alignBaseline="@+id/destina_headview_rabtn"
-                android:layout_alignBottom="@+id/destina_headview_rabtn"
-                android:layout_alignLeft="@+id/destina_headview_rabtn"
-                android:layout_alignRight="@+id/destina_headview_rabtn" />
 
-
-        </RelativeLayout>
     </RadioGroup>
 
 
