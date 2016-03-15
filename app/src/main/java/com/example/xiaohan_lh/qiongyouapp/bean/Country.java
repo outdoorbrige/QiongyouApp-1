@@ -78,4 +78,17 @@ public class Country {
     public int getFlag() {
         return flag;
     }
+
+    @Override
+    public String toString() {
+        return "Country{" +
+                "id=" + id +
+                ", cnname='" + cnname + '\'' +
+                ", enname='" + enname + '\'' +
+                ", photo='" + photo + '\'' +
+                ", count=" + count +
+                ", label='" + label + '\'' +
+                ", flag=" + flag +
+                '}';
+    }
 }

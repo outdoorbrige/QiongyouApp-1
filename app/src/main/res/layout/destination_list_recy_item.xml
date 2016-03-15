@@ -1,76 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    android:orientation="vertical">
 
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-        <com.facebook.drawee.view.SimpleDraweeView
-            android:id="@+id/destina_list_recy_simview"
-            android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="5dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:placeholderImage="@mipmap/ic_launcher"
-            app:viewAspectRatio="0.8"/>
+            android:orientation="vertical">
 
-            <LinearLayout
-                android:id="@+id/destina_list_recy_linear"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_margin="20dp"
-                android:layout_alignParentRight="true"
-                android:background="#77484343"
-                >
+            <RelativeLayout
+                android:id="@+id/relative"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-                <TextView
+                <com.facebook.drawee.view.SimpleDraweeView
+                    android:id="@+id/destina_list_recy_simview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:placeholderImage="@mipmap/ic_launcher"
+                    app:viewAspectRatio="0.8" />
+
+                <LinearLayout
+                    android:id="@+id/destina_list_recy_linear"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="123"
+                    android:layout_alignParentRight="true"
+                    android:layout_margin="10dp"
+                    android:background="#77484343"
+                    android:orientation="vertical">
 
-                    android:gravity="center_horizontal"
-                    android:textSize="30sp"/>
+                    <TextView
+                        android:id="@+id/destina_list_recy_count"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:text="城市"
-                    android:textSize="20sp"/>
+                        android:text="123"
+                        android:textSize="20sp" />
 
-            </LinearLayout>
+                    <TextView
+                        android:id="@+id/destina_list_recy_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:text="城市"
+                        android:textSize="15sp" />
+                </LinearLayout>
+            </RelativeLayout>
+
 
             <LinearLayout
-                android:layout_below="@id/destina_list_recy_simview"
+
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_below="@id/relative"
                 android:orientation="vertical">
+
                 <TextView
+                    android:id="@+id/destina_list_recy_cnname"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:text="中国"
-                    android:textSize="30sp"/>
+                    android:textSize="20sp" />
 
                 <TextView
+                    android:id="@+id/destina_list_recy_enname"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
+                    android:maxLines="1"
+                    android:ellipsize="end"
                     android:text="China"
-                    android:textSize="25sp"/>
+                    android:textSize="15sp" />
 
             </LinearLayout>
 
-
-
-        </RelativeLayout>
-
-
+        </LinearLayout>
     </android.support.v7.widget.CardView>
 
 </LinearLayout>

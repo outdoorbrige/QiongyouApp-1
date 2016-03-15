@@ -65,4 +65,15 @@ public class Continent {
     public List<Country> getCountry() {
         return country;
     }
+
+    @Override
+    public String toString() {
+        return "Continent{" +
+                "id=" + id +
+                ", cnname='" + cnname + '\'' +
+                ", enname='" + enname + '\'' +
+                ", hot_country=" + hot_country +
+                ", country=" + country +
+                '}';
+    }
 }
