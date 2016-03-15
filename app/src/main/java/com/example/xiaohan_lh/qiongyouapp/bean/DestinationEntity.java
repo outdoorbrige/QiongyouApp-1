@@ -63,4 +63,15 @@ public class DestinationEntity {
     public List<Continent> getData() {
         return data;
     }
+
+    @Override
+    public String toString() {
+        return "DestinationEntity{" +
+                "status=" + status +
+                ", info='" + info + '\'' +
+                ", times=" + times +
+                ", ra_referer='" + ra_referer + '\'' +
+                ", data=" + data +
+                '}';
+    }
 }
