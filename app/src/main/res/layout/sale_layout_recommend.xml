@@ -12,13 +12,13 @@
         android:layout_height="wrap_content">
 
         <LinearLayout
+            android:paddingLeft="7dp"
+            android:paddingRight="7dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp">
+            android:orientation="vertical">
             <TextView
-                android:paddingLeft="10dp"
+                android:paddingLeft="20dp"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
                 android:layout_width="wrap_content"
@@ -27,6 +27,8 @@
                 android:textColor="@android:color/darker_gray"/>
 
             <com.facebook.drawee.view.SimpleDraweeView
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="3dp"
                 android:id="@+id/sale_head_img"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -34,9 +36,13 @@
             <com.example.xiaohan_lh.qiongyouapp.customize.GridViewForScrollView
                 android:id="@+id/sale_grid"
                 android:numColumns="2"
+                android:layout_marginTop="10dp"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-            </com.example.xiaohan_lh.qiongyouapp.customize.GridViewForScrollView>
+                android:layout_height="wrap_content"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1sp"
+                android:background="@android:color/darker_gray"/>
             <Button
                 android:id="@+id/next_station_btn"
                 android:background="@null"

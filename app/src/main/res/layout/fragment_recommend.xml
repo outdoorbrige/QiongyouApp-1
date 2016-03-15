@@ -1,5 +1,7 @@
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/scroll_recommend"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.xiaohan_lh.qiongyouapp.fragment.RecommendFragment">
@@ -26,6 +28,9 @@
             layout="@layout/list_veiw_recommend"
             android:layout_width="match_parent"
             android:layout_height="900dp"/>
-
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:src="@mipmap/ic_launcher"/>
     </LinearLayout>
 </ScrollView>

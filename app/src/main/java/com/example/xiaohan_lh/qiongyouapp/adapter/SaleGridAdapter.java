@@ -13,6 +13,8 @@ import com.example.xiaohan_lh.qiongyouapp.bean.TabRecommendEntity;
 import com.facebook.drawee.view.SimpleDraweeView;
 
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -48,7 +50,7 @@ public class SaleGridAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder viewHolder = null;
         if (convertView==null) {
-            convertView = LayoutInflater.from(context).inflate(R.layout.sale_grid_recommend, null);
+            convertView = LayoutInflater.from(context).inflate(R.layout.sale_grid_recommend, parent,false);
             viewHolder = new ViewHolder(convertView);
             convertView.setTag(viewHolder);
         }else {
@@ -58,9 +60,11 @@ public class SaleGridAdapter extends BaseAdapter {
         viewHolder.saleImage.setImageURI(Uri.parse(discountEntity.getPhoto()));
         viewHolder.saleTitleTxt.setText(discountEntity.getTitle());
         viewHolder.saleDiscountTxt.setText(discountEntity.getPriceoff());
-        viewHolder.salePriceTxt.setText(discountEntity.getPrice());
-
-        return null;
+        Pattern pattern = Pattern.compile("[^0-9]");
+        Matcher matcher = pattern.matcher(discountEntity.getPrice());
+        String string = matcher.replaceAll("");
+        viewHolder.salePriceTxt.setText(string);
+        return convertView;
     }
 
     static class ViewHolder {
