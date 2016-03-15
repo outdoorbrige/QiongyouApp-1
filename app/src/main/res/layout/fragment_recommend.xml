@@ -18,5 +18,14 @@
             layout="@layout/next_station_revommend"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
+        <include
+            layout="@layout/sale_layout_recommend"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <include
+            layout="@layout/list_veiw_recommend"
+            android:layout_width="match_parent"
+            android:layout_height="900dp"/>
+
     </LinearLayout>
 </ScrollView>

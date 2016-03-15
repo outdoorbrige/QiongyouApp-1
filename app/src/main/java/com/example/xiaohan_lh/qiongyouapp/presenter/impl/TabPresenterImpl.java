@@ -3,14 +3,17 @@ package com.example.xiaohan_lh.qiongyouapp.presenter.impl;
 import android.view.View;
 
 import com.example.xiaohan_lh.qiongyouapp.bean.DestinationEntity;
+import com.example.xiaohan_lh.qiongyouapp.bean.HotListRecommendEntity;
 import com.example.xiaohan_lh.qiongyouapp.bean.TabCommunityEntity;
 import com.example.xiaohan_lh.qiongyouapp.bean.TabDestinationEntity;
 import com.example.xiaohan_lh.qiongyouapp.bean.TabRecommendEntity;
 import com.example.xiaohan_lh.qiongyouapp.model.impl.TabModelImpl;
 import com.example.xiaohan_lh.qiongyouapp.presenter.TabPresenter;
+import com.example.xiaohan_lh.qiongyouapp.utils.AppConnector;
 import com.example.xiaohan_lh.qiongyouapp.view.BaseView;
 import com.example.xiaohan_lh.qiongyouapp.view.CommunityView;
 import com.example.xiaohan_lh.qiongyouapp.view.DestinationView;
+import com.example.xiaohan_lh.qiongyouapp.view.HotListView;
 import com.example.xiaohan_lh.qiongyouapp.view.RecommendView;
 
 import retrofit2.Call;
@@ -78,5 +81,22 @@ public class TabPresenterImpl implements TabPresenter {
             }
         };
         tabModel.community(callback);
+    }
+
+    @Override
+    public void getHotListRecommend(String page) {
+        Callback<HotListRecommendEntity> callback = new Callback<HotListRecommendEntity>() {
+            @Override
+            public void onResponse(Call<HotListRecommendEntity> call, Response<HotListRecommendEntity> response) {
+                HotListRecommendEntity hotListRecommendEntity = response.body();
+                ((HotListView) view).hotLiveViewSueccess(hotListRecommendEntity);
+            }
+
+            @Override
+            public void onFailure(Call<HotListRecommendEntity> call, Throwable t) {
+                view.fail(t);
+            }
+        };
+        tabModel.hotListRecommend(callback,page);
     }
 }

@@ -7,4 +7,5 @@ public interface TabPresenter {
     public void getRecommend();
     public void getDestination();
     public void getCommunity();
+    public void getHotListRecommend(String page);
 }
