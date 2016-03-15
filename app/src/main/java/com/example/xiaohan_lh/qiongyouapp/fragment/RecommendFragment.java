@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.example.xiaohan_lh.qiongyouapp.R;
+import com.example.xiaohan_lh.qiongyouapp.adapter.SaleGridAdapter;
 import com.example.xiaohan_lh.qiongyouapp.bean.HotListRecommendEntity;
 import com.example.xiaohan_lh.qiongyouapp.bean.TabRecommendEntity;
 import com.example.xiaohan_lh.qiongyouapp.customize.GridViewForScrollView;
@@ -71,7 +72,6 @@ public class RecommendFragment extends Fragment implements RecommendView, HotLis
         View view = inflater.inflate(R.layout.fragment_recommend, container, false);
         ButterKnife.bind(this, view);
         return view;
-
     }
 
     @Override
@@ -81,6 +81,8 @@ public class RecommendFragment extends Fragment implements RecommendView, HotLis
         nextStationContentLeft.setImageURI(Uri.parse(nextStationContent.get(1).getPhoto()));
         nextStationContentRight.setImageURI(Uri.parse(nextStationContent.get(2).getPhoto()));
         saleHeadImg.setImageURI(Uri.parse(tabRecommendEntity.getData().getDiscount_subject().get(0).getPhoto()));
+        SaleGridAdapter saleGridAdapter = new SaleGridAdapter(tabRecommendEntity.getData().getDiscount(), getContext());
+
     }
 
     @Override
