@@ -80,7 +80,6 @@ public class RecommendFragment extends Fragment implements RecommendView, HotLis
 
     private void init() {
         listRecommendItem.setVisibility(View.GONE);
-
     }
 
     @Override
