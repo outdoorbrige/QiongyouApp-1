@@ -71,6 +71,7 @@ public class RecommendFragment extends Fragment implements RecommendView, HotLis
         View view = inflater.inflate(R.layout.fragment_recommend, container, false);
         ButterKnife.bind(this, view);
         return view;
+
     }
 
     @Override
