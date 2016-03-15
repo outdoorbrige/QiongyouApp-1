@@ -4,8 +4,6 @@ import android.app.Application;
 
 import com.facebook.drawee.backends.pipeline.Fresco;
 
-import retrofit2.Retrofit;
-
 /**
  * Created by xiaohan-lh on 16/3/14.
  */

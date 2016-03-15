@@ -30,7 +30,7 @@ public class RecommendFragment extends Fragment implements RecommendView {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_recommend, container, false);
+        return inflater.inflate(R.layout.fragment_recommend, container,false);
     }
 
     @Override
