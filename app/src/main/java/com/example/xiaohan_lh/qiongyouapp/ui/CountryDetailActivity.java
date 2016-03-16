@@ -67,7 +67,6 @@ public class CountryDetailActivity extends AppCompatActivity implements CountryD
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_country_detail);
         ButterKnife.bind(this);
-
         setSupportActionBar(countryDetailToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         initData();
