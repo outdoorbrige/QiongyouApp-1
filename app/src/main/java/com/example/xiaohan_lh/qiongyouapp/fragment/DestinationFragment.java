@@ -123,7 +123,7 @@ public class DestinationFragment extends Fragment implements DestinationView, Vi
                 listTxt.get(i).setTextColor(Color.WHITE);
             }else{
                 listbtn.get(i).setChecked(false);
-                listTxt.get(i).setTextColor(Color.BLACK);
+                listTxt.get(i).setTextColor(Color.GRAY);
             }
         }
     }

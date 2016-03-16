@@ -2,6 +2,7 @@ package com.example.xiaohan_lh.qiongyouapp.presenter.impl;
 
 import android.view.View;
 
+import com.example.xiaohan_lh.qiongyouapp.bean.CountryResponseEntity;
 import com.example.xiaohan_lh.qiongyouapp.bean.DestinationEntity;
 import com.example.xiaohan_lh.qiongyouapp.bean.HotListRecommendEntity;
 import com.example.xiaohan_lh.qiongyouapp.bean.TabCommunityEntity;
@@ -12,6 +13,7 @@ import com.example.xiaohan_lh.qiongyouapp.presenter.TabPresenter;
 import com.example.xiaohan_lh.qiongyouapp.utils.AppConnector;
 import com.example.xiaohan_lh.qiongyouapp.view.BaseView;
 import com.example.xiaohan_lh.qiongyouapp.view.CommunityView;
+import com.example.xiaohan_lh.qiongyouapp.view.CountryDetailView;
 import com.example.xiaohan_lh.qiongyouapp.view.DestinationView;
 import com.example.xiaohan_lh.qiongyouapp.view.HotListView;
 import com.example.xiaohan_lh.qiongyouapp.view.RecommendView;
@@ -98,5 +100,22 @@ public class TabPresenterImpl implements TabPresenter {
             }
         };
         tabModel.hotListRecommend(callback,page);
+    }
+
+    @Override
+    public void getCountryDetail(String countryid) {
+        Callback<CountryResponseEntity> callback = new Callback<CountryResponseEntity>() {
+            @Override
+            public void onResponse(Call<CountryResponseEntity> call, Response<CountryResponseEntity> response) {
+                CountryResponseEntity countryResponseEntity = response.body();
+                ((CountryDetailView)view).countrydelSuccess(countryResponseEntity);
+            }
+
+            @Override
+            public void onFailure(Call<CountryResponseEntity> call, Throwable t) {
+
+            }
+        };
+        tabModel.countryDetail(callback,countryid);
     }
 }

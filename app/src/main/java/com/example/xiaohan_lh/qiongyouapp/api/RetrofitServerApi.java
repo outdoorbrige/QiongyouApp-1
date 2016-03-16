@@ -1,5 +1,6 @@
 package com.example.xiaohan_lh.qiongyouapp.api;
 
+import com.example.xiaohan_lh.qiongyouapp.bean.CountryResponseEntity;
 import com.example.xiaohan_lh.qiongyouapp.bean.DestinationEntity;
 import com.example.xiaohan_lh.qiongyouapp.bean.HotListRecommendEntity;
 import com.example.xiaohan_lh.qiongyouapp.bean.TabCommunityEntity;
@@ -25,4 +26,7 @@ public interface RetrofitServerApi {
     Call<TabCommunityEntity> getTabCommunity();
     @GET(AppConnector.Recommend.LIST_RECOMMEND)
     Call<HotListRecommendEntity> getHotListRecommend(@Query("page") String page);
+    @GET(AppConnector.Detail.COUNTRY_DETAIL)
+    Call<CountryResponseEntity> getContryDetail(@Query("country_id") String country_id);
+
 }

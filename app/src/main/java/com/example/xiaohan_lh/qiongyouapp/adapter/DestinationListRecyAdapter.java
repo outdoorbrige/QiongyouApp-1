@@ -3,8 +3,11 @@ package com.example.xiaohan_lh.qiongyouapp.adapter;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.net.Uri;
+import android.support.v7.graphics.Palette;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,8 +16,11 @@ import android.widget.TextView;
 
 import com.example.xiaohan_lh.qiongyouapp.R;
 import com.example.xiaohan_lh.qiongyouapp.bean.Country;
+import com.example.xiaohan_lh.qiongyouapp.utils.DownBitmap;
 import com.facebook.drawee.view.SimpleDraweeView;
+import com.squareup.picasso.Picasso;
 
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -51,11 +57,35 @@ public class DestinationListRecyAdapter extends RecyclerView.Adapter<Destination
         if(tag==1){
             holder.simpleDraweeView.setVisibility(View.GONE);
             holder.linearLayout.setVisibility(View.GONE);
+            holder.ennameTxt.setTextColor(Color.BLACK);
+            holder.cnnameTxt.setTextColor(Color.BLACK);
         }else {
             holder.simpleDraweeView.setVisibility(View.VISIBLE);
             holder.linearLayout.setVisibility(View.VISIBLE);
+            holder.ennameTxt.setTextColor(Color.WHITE);
+            holder.cnnameTxt.setTextColor(Color.WHITE);
+            holder.countTxt.setTextColor(Color.WHITE);
+            holder.labelTxt.setTextColor(Color.WHITE);
+            holder.simpleDraweeView.setImageURI(Uri.parse(list.get(position).getPhoto()));
+
+
+
+           DownBitmap bit= new DownBitmap(holder.liner);
+
+            Bitmap bitmap = bit.getBitmap(list.get(position).getPhoto(),context);
+//            try {
+//                bitmap = Picasso.with(context).load(Uri.parse(list.get(position).getPhoto())).get();
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
+//            Log.d("123456",bitmap.toString());
+//            Palette palette = Palette.from(bitmap).generate();
+//            Palette.Swatch vibrantSwatch = palette.getVibrantSwatch();
+//            if(vibrantSwatch!=null){
+//                holder.linearLayout.setBackgroundColor(vibrantSwatch.getRgb());
+//            }
         }
-        holder.simpleDraweeView.setImageURI(Uri.parse(list.get(position).getPhoto()));
+
         holder.countTxt.setText(list.get(position).getCount()+"");
         holder.labelTxt.setText(list.get(position).getLabel());
         holder.cnnameTxt.setText(list.get(position).getCnname());
@@ -84,7 +114,7 @@ public class DestinationListRecyAdapter extends RecyclerView.Adapter<Destination
     public static class RecViewHolder extends RecyclerView.ViewHolder{
         private SimpleDraweeView simpleDraweeView;
         private TextView countTxt,labelTxt,cnnameTxt,ennameTxt;
-        private LinearLayout linearLayout;
+        private LinearLayout linearLayout,liner;
         public RecViewHolder(View itemView) {
             super(itemView);
             simpleDraweeView = (SimpleDraweeView) itemView.findViewById(R.id.destina_list_recy_simview);
@@ -93,6 +123,7 @@ public class DestinationListRecyAdapter extends RecyclerView.Adapter<Destination
             cnnameTxt = (TextView) itemView.findViewById(R.id.destina_list_recy_cnname);
             ennameTxt = (TextView) itemView.findViewById(R.id.destina_list_recy_enname);
             linearLayout = (LinearLayout) itemView.findViewById(R.id.destina_list_recy_linear);
+            liner = (LinearLayout) itemView.findViewById(R.id.destina_list_recy_lin);
         }
     }
     public interface OnChildClickListener {
