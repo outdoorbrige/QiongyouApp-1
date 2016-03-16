@@ -109,6 +109,7 @@ public class RefreshLayout extends SwipeRefreshLayout {
 
 
 
+
 //    public void setLoading(boolean loading) {
 //        isLoading = loading;
 //        if (isLoading) {
