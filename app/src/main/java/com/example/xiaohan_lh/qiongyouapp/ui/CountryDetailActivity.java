@@ -113,4 +113,10 @@ public class CountryDetailActivity extends AppCompatActivity implements CountryD
     public void fail(Throwable t) {
 
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        ButterKnife.unbind(this);
+    }
 }
