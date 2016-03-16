@@ -1,6 +1,7 @@
 package com.example.xiaohan_lh.qiongyouapp.model.impl;
 
 import com.example.xiaohan_lh.qiongyouapp.api.RetrofitServerApi;
+import com.example.xiaohan_lh.qiongyouapp.bean.CountryResponseEntity;
 import com.example.xiaohan_lh.qiongyouapp.bean.DestinationEntity;
 import com.example.xiaohan_lh.qiongyouapp.bean.HotListRecommendEntity;
 import com.example.xiaohan_lh.qiongyouapp.bean.TabCommunityEntity;
@@ -46,5 +47,10 @@ public class TabModelImpl implements TabModel {
     @Override
     public void hotListRecommend(Callback<HotListRecommendEntity> callback, String page) {
         retrofitServer.getHotListRecommend(page).enqueue(callback);
+    }
+
+    @Override
+    public void countryDetail(Callback<CountryResponseEntity> callback, String countryid) {
+        retrofitServer.getContryDetail(countryid).enqueue(callback);
     }
 }

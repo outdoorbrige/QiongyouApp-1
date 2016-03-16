@@ -1,36 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/country_detail_coorlayout"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.example.xiaohan_lh.qiongyouapp.ui.CountryDetailActivity">
 
-    <android.support.design.widget.AppBarLayout
-        android:id="@+id/country_detail_appbar"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        style="@style/ThemeOverlay.AppCompat.Dark">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <android.support.design.widget.CollapsingToolbarLayout
-            android:id="@+id/country_detail_colltoolbar"
+        <include
+            android:id="@+id/country_detail_include"
+            layout="@layout/country_toolbar_item"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:contentScrim="@color/colorPrimary"
-            app:layout_scrollFlags="exitUntilCollapsed|scroll">
+            app:layout_collapseMode="parallax" />
 
-            <include
-                android:id="@+id/country_detail_include"
-                layout="@layout/country_toolbar_item"
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp">
+
+            <TextView
+                android:id="@+id/country_detail_gridtxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="热门城市"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_margin="10dp"
+                android:text="查看全部"
+                android:textColor="@color/title"
+                android:textStyle="bold" />
+
+            <com.example.xiaohan_lh.qiongyouapp.customize.GridViewForScrollView
+                android:layout_below="@id/country_detail_gridtxt"
+                android:id="@+id/country_detail_gridview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_collapseMode="parallax"/>
+                android:numColumns="2"/>
 
-        </android.support.design.widget.CollapsingToolbarLayout>
+        </RelativeLayout>
 
-    </android.support.design.widget.AppBarLayout>
+        <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp">
 
+        <TextView
+            android:id="@+id/country_detail_listtxt"
+            android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="超值自由行"
+                android:textStyle="bold" />
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_margin="10dp"
+                android:text="查看全部"
+                android:textColor="@color/title"
+                android:textStyle="bold" />
+            <com.example.xiaohan_lh.qiongyouapp.customize.ListViewForScrollView
+                android:layout_below="@id/country_detail_listtxt"
+                android:id="@+id/country_detail_listview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </RelativeLayout>
 
-</android.support.design.widget.CoordinatorLayout>
+    </LinearLayout>
+</ScrollView>
