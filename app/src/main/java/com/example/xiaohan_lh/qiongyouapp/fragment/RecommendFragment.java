@@ -1,20 +1,24 @@
 package com.example.xiaohan_lh.qiongyouapp.fragment;
 
 
+import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.view.ViewPager;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.bigkoo.convenientbanner.ConvenientBanner;
+import com.bigkoo.convenientbanner.holder.CBViewHolderCreator;
+import com.bigkoo.convenientbanner.holder.Holder;
 import com.example.xiaohan_lh.qiongyouapp.R;
 import com.example.xiaohan_lh.qiongyouapp.adapter.ListViewForScrollViewAdapter;
 import com.example.xiaohan_lh.qiongyouapp.adapter.SaleGridAdapter;
@@ -33,6 +37,7 @@ import com.facebook.drawee.view.SimpleDraweeView;
 import java.util.ArrayList;
 import java.util.List;
 
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
@@ -41,8 +46,6 @@ import butterknife.ButterKnife;
  */
 public class RecommendFragment extends Fragment implements RecommendView, HotListView {
 
-    @Bind(R.id.ad_viewPager)
-    ViewPager adViewPager;
     @Bind(R.id.pack_itv)
     ImageTxtView packItv;
     @Bind(R.id.sale_itv)
@@ -79,6 +82,10 @@ public class RecommendFragment extends Fragment implements RecommendView, HotLis
     RefreshLayout swipeLayout;
     @Bind(R.id.scroll_recommend)
     BottomScrollView scrollRecommend;
+    @Bind(R.id.convenient_pager)
+    ConvenientBanner convenientPager;
+    @Bind(R.id.punchIn_btn)
+    ImageButton punchInBtn;
     private int page = 1;
     private List<HotListRecommendEntity.DataEntity> hotListdataEntities = new ArrayList<>();
     private ListViewForScrollViewAdapter listViewForScrollViewAdapter;
@@ -126,7 +133,25 @@ public class RecommendFragment extends Fragment implements RecommendView, HotLis
             }
         });
         swipeLayout.setRefreshing(false);
+        List<TabRecommendEntity.DataEntity.SlideEntity> slide = tabRecommendEntity.getData().getSlide();
+        initConvenientPager(slide);
     }
+
+    private void initConvenientPager(List<TabRecommendEntity.DataEntity.SlideEntity> slide) {
+        List<String> list = new ArrayList<>();
+        for (int i = 0; i < slide.size(); i++) {
+            list.add(slide.get(i).getPhoto());
+        }
+        convenientPager.setPages(new CBViewHolderCreator<LocalImageHolderView>(){
+
+            @Override
+            public LocalImageHolderView createHolder() {
+                return new LocalImageHolderView();
+            }
+        },list);
+        convenientPager.startTurning(5000);
+    }
+
 
     private void pullToTopRerefsh() {
         swipeLayout.setColorSchemeResources(android.R.color.holo_blue_light, android.R.color.holo_red_light, android.R.color.holo_orange_light, android.R.color.holo_green_light);
@@ -144,7 +169,7 @@ public class RecommendFragment extends Fragment implements RecommendView, HotLis
         swipeLayout.setOnScrollToBottomListener(isLoading, isBottom, new RefreshLayout.OnScrollToBottomListener() {
             @Override
             public void scrollToBottom() {
-                isLoading=true;
+                isLoading = true;
                 if (page < 6) {
                     new TabPresenterImpl(RecommendFragment.this).getHotListRecommend(page + "");
                     page++;
@@ -162,7 +187,7 @@ public class RecommendFragment extends Fragment implements RecommendView, HotLis
         List<HotListRecommendEntity.DataEntity> dataEntities = hotListRecommendEntity.getData();
         hotListdataEntities.addAll(dataEntities);
         listViewForScrollViewAdapter.notifyDataSetChanged();
-        if(listLayout.getVisibility()==View.GONE) {
+        if (listLayout.getVisibility() == View.GONE) {
             listLayout.setVisibility(View.VISIBLE);
         }
         isLoading = false;
@@ -177,5 +202,20 @@ public class RecommendFragment extends Fragment implements RecommendView, HotLis
     public void onDestroyView() {
         super.onDestroyView();
         ButterKnife.unbind(this);
+    }
+
+    public class LocalImageHolderView implements Holder<String> {
+        private SimpleDraweeView simpleDraweeView;
+        @Override
+        public View createView(Context context) {
+            simpleDraweeView = new SimpleDraweeView(context);
+            simpleDraweeView.setScaleType(ImageView.ScaleType.FIT_XY);
+            return simpleDraweeView;
+        }
+
+        @Override
+        public void UpdateUI(Context context, final int position, String data) {
+            simpleDraweeView.setImageURI(Uri.parse(data));
+        }
     }
 }
