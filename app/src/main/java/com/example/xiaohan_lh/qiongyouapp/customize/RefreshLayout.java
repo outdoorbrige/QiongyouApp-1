@@ -5,6 +5,8 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.ViewConfiguration;
+import android.widget.ListView;
+import android.widget.ScrollView;
 
 /**
  * 继承自SwipeRefreshLayout,从而实现滑动到底部时上拉加载更多的功能.
@@ -97,13 +99,13 @@ public class RefreshLayout extends SwipeRefreshLayout {
         this.isBottom = isBottom;
         this.isLoading = isLoading;
         this.onScrollToBottomListener = onScrollToBottomListener;
+
     }
 
     public interface OnScrollToBottomListener {
         public void scrollToBottom();
     }
 }
-
 
 
 //    public void setLoading(boolean loading) {

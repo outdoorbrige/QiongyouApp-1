@@ -155,7 +155,7 @@ public class RecommendFragment extends Fragment implements RecommendView, HotLis
 
 
     private void pullToTopRerefsh() {
-        swipeLayout.setColorSchemeResources(android.R.color.holo_blue_light, android.R.color.holo_red_light, android.R.color.holo_orange_light, android.R.color.holo_green_light);
+        swipeLayout.setColorSchemeResources(R.color.green, R.color.orange, R.color.blue, R.color.cyan);
         swipeLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
