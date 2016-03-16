@@ -77,7 +77,6 @@ public class CountryDetailActivity extends AppCompatActivity implements CountryD
         countryDetailListview.setFocusable(false);
         countryDetailGridview.setFocusable(false);
         Intent intent = getIntent();
-
         Bundle bundle = intent.getExtras();
         int id = (int) bundle.get("countryid");
         tabPresenter = new TabPresenterImpl(this);
