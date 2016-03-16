@@ -37,7 +37,7 @@
                 android:onClick=""
                 app:image_src="@mipmap/ic_home_jinnang_normal"
                 app:image_txt="看锦囊"
-                app:image_txtSize="7sp" />
+                app:image_txtSize="4dp" />
 
             <com.example.xiaohan_lh.qiongyouapp.customize.ImageTxtView
                 android:id="@+id/sale_itv"
@@ -47,7 +47,7 @@
                 android:gravity="center_horizontal"
                 app:image_src="@mipmap/ic_home_sale_normal"
                 app:image_txt="抢折扣"
-                app:image_txtSize="7sp" />
+                app:image_txtSize="4dp" />
 
             <com.example.xiaohan_lh.qiongyouapp.customize.ImageTxtView
                 android:id="@+id/hotel_itv"
@@ -57,7 +57,7 @@
                 android:gravity="center_horizontal"
                 app:image_src="@mipmap/ic_home_hotel_normal"
                 app:image_txt="定酒店"
-                app:image_txtSize="7sp" />
+                app:image_txtSize="4dp" />
 
             <com.example.xiaohan_lh.qiongyouapp.customize.ImageTxtView
                 android:id="@+id/travel_itv"
@@ -67,7 +67,7 @@
                 android:gravity="center_horizontal"
                 app:image_src="@mipmap/pin_00000"
                 app:image_txt="旅途中"
-                app:image_txtSize="7sp" />
+                app:image_txtSize="4dp" />
         </LinearLayout>
     </RelativeLayout>
 

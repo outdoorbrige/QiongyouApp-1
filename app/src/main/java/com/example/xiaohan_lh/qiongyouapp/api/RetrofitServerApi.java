@@ -11,6 +11,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
+import retrofit2.http.Query;
 
 /**
  * Created by xiaohan-lh on 16/3/14.
@@ -23,5 +24,5 @@ public interface RetrofitServerApi {
     @GET(AppConnector.Tab.TAB_COMMUNITY)
     Call<TabCommunityEntity> getTabCommunity();
     @GET(AppConnector.Recommend.LIST_RECOMMEND)
-    Call<HotListRecommendEntity> getHotListRecommend(@Path("page") String page);
+    Call<HotListRecommendEntity> getHotListRecommend(@Query("page") String page);
 }

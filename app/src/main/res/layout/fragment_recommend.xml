@@ -1,36 +1,46 @@
-<ScrollView
+<android.support.v4.widget.SwipeRefreshLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/scroll_recommend"
+    android:id="@+id/swipe_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.xiaohan_lh.qiongyouapp.fragment.RecommendFragment">
 
-    <LinearLayout
+    <com.example.xiaohan_lh.qiongyouapp.customize.BottomScrollView
+        android:id="@+id/scroll_recommend"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
-        <include
-            layout="@layout/head_recommend"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-        <include
-            layout="@layout/next_station_revommend"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-        <include
-            layout="@layout/sale_layout_recommend"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-        <include
-            layout="@layout/list_veiw_recommend"
-            android:layout_width="match_parent"
-            android:layout_height="900dp"/>
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:src="@mipmap/ic_launcher"/>
-    </LinearLayout>
-</ScrollView>
+            <include
+                layout="@layout/head_recommend"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <include
+                layout="@layout/next_station_revommend"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <include
+                layout="@layout/sale_layout_recommend"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <include
+                layout="@layout/list_veiw_recommend"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <ImageView
+                android:id="@+id/bottom_img"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:src="@mipmap/ic_launcher"/>
+        </LinearLayout>
+
+    </com.example.xiaohan_lh.qiongyouapp.customize.BottomScrollView>
+</android.support.v4.widget.SwipeRefreshLayout>
