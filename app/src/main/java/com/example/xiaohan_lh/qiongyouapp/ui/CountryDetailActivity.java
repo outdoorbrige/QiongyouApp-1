@@ -89,7 +89,6 @@ public class CountryDetailActivity extends AppCompatActivity implements CountryD
                 if(oldScrollY<viewheight){
                 if(scrollY<viewheight){
                     countryDetailToolbar.setAlpha(scrollY*1.0f/viewheight);
-
                 }
                 }else{
                     countryDetailToolbar.setAlpha(1.0f);
