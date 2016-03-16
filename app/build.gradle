@@ -34,4 +34,5 @@ dependencies {
     compile 'com.squareup.picasso:picasso:2.5.2'
     compile 'com.android.support:palette-v7:23.2.0'
     compile 'com.github.chrisbanes.actionbarpulltorefresh:library:0.9.9'
+    compile 'com.bigkoo:convenientbanner:2.0.5'
 }
