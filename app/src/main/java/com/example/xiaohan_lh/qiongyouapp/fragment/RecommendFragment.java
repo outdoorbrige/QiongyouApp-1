@@ -141,8 +141,6 @@ public class RecommendFragment extends Fragment implements RecommendView, HotLis
         List<String> list = new ArrayList<>();
         for (int i = 0; i < slide.size(); i++) {
             list.add(slide.get(i).getPhoto());
-
-
         }
         convenientPager.setPages(new CBViewHolderCreator<LocalImageHolderView>(){
 
@@ -151,6 +149,7 @@ public class RecommendFragment extends Fragment implements RecommendView, HotLis
                 return new LocalImageHolderView();
             }
         },list);
+        convenientPager.setPageIndicator(new int[]{R.drawable.pager_flase, R.drawable.pager_true});
         convenientPager.startTurning(5000);
     }
 
@@ -175,8 +174,7 @@ public class RecommendFragment extends Fragment implements RecommendView, HotLis
                 if (page < 6) {
                     new TabPresenterImpl(RecommendFragment.this).getHotListRecommend(page + "");
                     page++;
-                } else {
-                    if (bottomImg.getVisibility() == View.VISIBLE) {
+                    if (page==5&&bottomImg.getVisibility() == View.VISIBLE) {
                         bottomImg.setVisibility(View.GONE);
                     }
                 }
