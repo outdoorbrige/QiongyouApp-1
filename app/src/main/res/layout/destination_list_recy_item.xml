@@ -34,7 +34,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_margin="10dp"
-                    android:background="#77484343"
+                    android:background="@drawable/destina_recy_item"
                     android:orientation="vertical">
 
                     <TextView
@@ -44,24 +44,26 @@
                         android:layout_gravity="center_horizontal"
 
                         android:text="123"
-                        android:textSize="20sp" />
+                        android:textSize="15sp" />
 
                     <TextView
+                        android:paddingTop="2dp"
                         android:id="@+id/destina_list_recy_label"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
                         android:text="城市"
-                        android:textSize="15sp" />
+                        android:textSize="12sp" />
                 </LinearLayout>
             </RelativeLayout>
 
 
             <LinearLayout
-
+                android:id="@+id/destina_list_recy_lin"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_below="@id/relative"
+                android:padding="10dp"
                 android:orientation="vertical">
 
                 <TextView
@@ -70,7 +72,9 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:text="中国"
-                    android:textSize="20sp" />
+                    android:maxLines="1"
+                    android:ellipsize="end"
+                    android:textSize="15sp" />
 
                 <TextView
                     android:id="@+id/destina_list_recy_enname"
@@ -78,9 +82,10 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:maxLines="1"
+                    android:paddingTop="2dp"
                     android:ellipsize="end"
                     android:text="China"
-                    android:textSize="15sp" />
+                    android:textSize="12sp" />
 
             </LinearLayout>
 
