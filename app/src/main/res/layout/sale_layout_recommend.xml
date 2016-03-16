@@ -44,7 +44,7 @@
                 android:layout_height="1sp"
                 android:background="@android:color/darker_gray"/>
             <Button
-                android:id="@+id/next_station_btn"
+                android:id="@+id/sale_btn"
                 android:background="@null"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

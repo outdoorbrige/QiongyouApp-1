@@ -45,7 +45,7 @@ public class ImageTxtView extends RelativeLayout {
         Drawable drawable = typedArray.getDrawable(R.styleable.ImageTxtView_image_src);
         CharSequence text = typedArray.getText(R.styleable.ImageTxtView_image_txt);
         float gap = typedArray.getDimension(R.styleable.ImageTxtView_image_gap, 20.0F);
-        float txtSize = typedArray.getDimension(R.styleable.ImageTxtView_image_txtSize, 10.0F);
+        float txtSize = typedArray.getDimension(R.styleable.ImageTxtView_image_txtSize, 2.0F);
         imageView.setImageDrawable(drawable);
         textView.setText(text);
         textView.setTextColor(color);

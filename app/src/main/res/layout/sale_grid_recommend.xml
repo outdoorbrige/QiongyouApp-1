@@ -16,7 +16,7 @@
         android:layout_height="wrap_content"
         android:maxLines="2"
         android:ellipsize="end"
-        android:textSize="15dp"
+        android:textSize="14dp"
         android:textColor="@android:color/black" />
     <TextView
         android:padding="5dp"
