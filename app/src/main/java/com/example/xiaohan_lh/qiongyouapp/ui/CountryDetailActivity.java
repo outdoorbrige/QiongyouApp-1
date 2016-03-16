@@ -1,9 +1,16 @@
 package com.example.xiaohan_lh.qiongyouapp.ui;
 
+import android.annotation.TargetApi;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.View;
+import android.widget.Button;
+import android.widget.RadioButton;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.example.xiaohan_lh.qiongyouapp.R;
@@ -43,6 +50,16 @@ public class CountryDetailActivity extends AppCompatActivity implements CountryD
     TextView countryDetailListtxt;
     @Bind(R.id.country_detail_listview)
     ListViewForScrollView countryDetailListview;
+    @Bind(R.id.country_detail_toolbar)
+    Toolbar countryDetailToolbar;
+    @Bind(R.id.country_detail_wantgo)
+    Button countryDetailWantgo;
+    @Bind(R.id.country_detail_friends)
+    RadioButton countryDetailFriends;
+    @Bind(R.id.country_detail_ask)
+    RadioButton countryDetailAsk;
+    @Bind(R.id.country_detail_scroll)
+    ScrollView countryDetailScroll;
     private TabPresenter tabPresenter;
 
     @Override
@@ -50,15 +67,34 @@ public class CountryDetailActivity extends AppCompatActivity implements CountryD
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_country_detail);
         ButterKnife.bind(this);
+        setSupportActionBar(countryDetailToolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         initData();
     }
 
+    @TargetApi(Build.VERSION_CODES.M)
     private void initData() {
+        countryDetailListview.setFocusable(false);
+        countryDetailGridview.setFocusable(false);
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
         int id = (int) bundle.get("countryid");
         tabPresenter = new TabPresenterImpl(this);
         tabPresenter.getCountryDetail(id + "");
+        countryDetailScroll.setOnScrollChangeListener(new View.OnScrollChangeListener() {
+            @Override
+            public void onScrollChange(View v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
+                int viewheight = countryDetailViewpage.getHeight();
+                if(oldScrollY<viewheight){
+                if(scrollY<viewheight){
+                    countryDetailToolbar.setAlpha(scrollY*1.0f/viewheight);
+
+                }
+                }else{
+                    countryDetailToolbar.setAlpha(1.0f);
+                }
+            }
+        });
     }
 
     @Override
