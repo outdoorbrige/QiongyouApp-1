@@ -24,6 +24,7 @@ import com.example.xiaohan_lh.qiongyouapp.customize.BottomScrollView;
 import com.example.xiaohan_lh.qiongyouapp.customize.GridViewForScrollView;
 import com.example.xiaohan_lh.qiongyouapp.customize.ImageTxtView;
 import com.example.xiaohan_lh.qiongyouapp.customize.ListViewForScrollView;
+import com.example.xiaohan_lh.qiongyouapp.customize.RefreshLayout;
 import com.example.xiaohan_lh.qiongyouapp.presenter.impl.TabPresenterImpl;
 import com.example.xiaohan_lh.qiongyouapp.view.HotListView;
 import com.example.xiaohan_lh.qiongyouapp.view.RecommendView;
@@ -72,15 +73,16 @@ public class RecommendFragment extends Fragment implements RecommendView, HotLis
     CardView cardList;
     @Bind(R.id.list_layout)
     LinearLayout listLayout;
-    @Bind(R.id.scroll_recommend)
-    BottomScrollView scrollRecommend;
-    @Bind(R.id.swipe_layout)
-    SwipeRefreshLayout swipeLayout;
     @Bind(R.id.bottom_img)
     ImageView bottomImg;
+    @Bind(R.id.swipe_layout)
+    RefreshLayout swipeLayout;
+    @Bind(R.id.scroll_recommend)
+    BottomScrollView scrollRecommend;
     private int page = 1;
     private List<HotListRecommendEntity.DataEntity> hotListdataEntities = new ArrayList<>();
     private ListViewForScrollViewAdapter listViewForScrollViewAdapter;
+    private boolean isLoading = false;
 
     public static RecommendFragment newInstance() {
         Bundle args = new Bundle();
@@ -96,11 +98,13 @@ public class RecommendFragment extends Fragment implements RecommendView, HotLis
         new TabPresenterImpl(this).getRecommend();
         View view = inflater.inflate(R.layout.fragment_recommend, container, false);
         ButterKnife.bind(this, view);
+        pullToTopRerefsh();
         init();
         return view;
     }
 
     private void init() {
+        saleGrid.setFocusable(false);
         listLayout.setVisibility(View.GONE);
     }
 
@@ -118,20 +122,39 @@ public class RecommendFragment extends Fragment implements RecommendView, HotLis
         scrollRecommend.setOnScrollToBottomLintener(new BottomScrollView.OnScrollToBottomListener() {
             @Override
             public void onScrollBottomListener(boolean isBottom) {
-                if (isBottom) {
-                    if (page < 6) {
-                        new TabPresenterImpl(RecommendFragment.this).getHotListRecommend(page + "");
-                        page++;
-                    } else {
-                        if (bottomImg.getVisibility() == View.VISIBLE) {
-                            bottomImg.setVisibility(View.GONE);
-                        }
-                    }
+                pullToBottomRerefsh(isBottom);
+            }
+        });
+        swipeLayout.setRefreshing(false);
+    }
 
+    private void pullToTopRerefsh() {
+        swipeLayout.setColorSchemeResources(android.R.color.holo_blue_light, android.R.color.holo_red_light, android.R.color.holo_orange_light, android.R.color.holo_green_light);
+        swipeLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                listLayout.setVisibility(View.GONE);
+                new TabPresenterImpl(RecommendFragment.this).getRecommend();
+            }
+        });
+    }
+
+    //下拉加载
+    private void pullToBottomRerefsh(boolean isBottom) {
+        swipeLayout.setOnScrollToBottomListener(isLoading, isBottom, new RefreshLayout.OnScrollToBottomListener() {
+            @Override
+            public void scrollToBottom() {
+                isLoading=true;
+                if (page < 6) {
+                    new TabPresenterImpl(RecommendFragment.this).getHotListRecommend(page + "");
+                    page++;
+                } else {
+                    if (bottomImg.getVisibility() == View.VISIBLE) {
+                        bottomImg.setVisibility(View.GONE);
+                    }
                 }
             }
         });
-
     }
 
     @Override
@@ -139,7 +162,10 @@ public class RecommendFragment extends Fragment implements RecommendView, HotLis
         List<HotListRecommendEntity.DataEntity> dataEntities = hotListRecommendEntity.getData();
         hotListdataEntities.addAll(dataEntities);
         listViewForScrollViewAdapter.notifyDataSetChanged();
-        listLayout.setVisibility(View.VISIBLE);
+        if(listLayout.getVisibility()==View.GONE) {
+            listLayout.setVisibility(View.VISIBLE);
+        }
+        isLoading = false;
     }
 
     @Override
