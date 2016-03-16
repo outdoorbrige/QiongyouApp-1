@@ -141,6 +141,8 @@ public class RecommendFragment extends Fragment implements RecommendView, HotLis
         List<String> list = new ArrayList<>();
         for (int i = 0; i < slide.size(); i++) {
             list.add(slide.get(i).getPhoto());
+
+
         }
         convenientPager.setPages(new CBViewHolderCreator<LocalImageHolderView>(){
 
