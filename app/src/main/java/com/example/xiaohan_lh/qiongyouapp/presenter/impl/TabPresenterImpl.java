@@ -1,10 +1,12 @@
 package com.example.xiaohan_lh.qiongyouapp.presenter.impl;
 
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.xiaohan_lh.qiongyouapp.bean.CountryResponseEntity;
 import com.example.xiaohan_lh.qiongyouapp.bean.DestinationEntity;
 import com.example.xiaohan_lh.qiongyouapp.bean.HotListRecommendEntity;
+import com.example.xiaohan_lh.qiongyouapp.bean.NextStationEntity;
 import com.example.xiaohan_lh.qiongyouapp.bean.TabCommunityEntity;
 import com.example.xiaohan_lh.qiongyouapp.bean.TabDestinationEntity;
 import com.example.xiaohan_lh.qiongyouapp.bean.TabRecommendEntity;
@@ -16,6 +18,7 @@ import com.example.xiaohan_lh.qiongyouapp.view.CommunityView;
 import com.example.xiaohan_lh.qiongyouapp.view.CountryDetailView;
 import com.example.xiaohan_lh.qiongyouapp.view.DestinationView;
 import com.example.xiaohan_lh.qiongyouapp.view.HotListView;
+import com.example.xiaohan_lh.qiongyouapp.view.NextStationView;
 import com.example.xiaohan_lh.qiongyouapp.view.RecommendView;
 
 import retrofit2.Call;
@@ -117,5 +120,22 @@ public class TabPresenterImpl implements TabPresenter {
             }
         };
         tabModel.countryDetail(callback,countryid);
+    }
+
+    @Override
+    public void getNextstation(String page) {
+        Callback<NextStationEntity> callback = new Callback<NextStationEntity>() {
+            @Override
+            public void onResponse(Call<NextStationEntity> call, Response<NextStationEntity> response) {
+                NextStationEntity nextStationEntity = response.body();
+                ((NextStationView) view).NextStationSueccess(nextStationEntity);
+            }
+
+            @Override
+            public void onFailure(Call<NextStationEntity> call, Throwable t) {
+                view.fail(t);
+            }
+        };
+        tabModel.nextStation(callback,page);
     }
 }

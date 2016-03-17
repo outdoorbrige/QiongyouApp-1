@@ -9,4 +9,5 @@ public interface TabPresenter {
     public void getCommunity();
     public void getHotListRecommend(String page);
     public void getCountryDetail(String countryid);
+    public void getNextstation(String page);
 }

@@ -36,7 +36,6 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center_horizontal"
-                android:onClick=""
                 app:image_src="@mipmap/ic_home_jinnang_normal"
                 app:image_txt="看锦囊"
                 app:image_txtSize="4dp" />

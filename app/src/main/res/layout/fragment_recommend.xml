@@ -34,12 +34,28 @@
                     layout="@layout/list_veiw_recommend"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
+                <LinearLayout
+                    android:padding="10dp"
+                    android:id="@+id/bottom_layout"
+                    android:orientation="horizontal"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:layout_gravity="center_horizontal"
+                        android:id="@+id/bottom_img"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/loading_anim"
+                        android:background="@mipmap/ic_loading_yuan_white"/>
+                    <TextView
+                        android:paddingLeft="20dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="正在加载"/>
+                </LinearLayout>
 
-                <ImageView
-                    android:id="@+id/bottom_img"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:src="@mipmap/ic_launcher" />
             </LinearLayout>
         </com.example.xiaohan_lh.qiongyouapp.customize.BottomScrollView>
 </com.example.xiaohan_lh.qiongyouapp.customize.RefreshLayout>
