@@ -106,7 +106,6 @@ public class CityDetailActivity extends AppCompatActivity implements CityDetailV
         }
     }
 
-
     @Override
     public void citydelSuccess(CityDetailResponseEntity entity) {
         cityEntity = entity;
