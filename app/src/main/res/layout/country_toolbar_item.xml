@@ -7,10 +7,11 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-    <android.support.v4.view.ViewPager
+    <com.bigkoo.convenientbanner.ConvenientBanner
         android:id="@+id/country_detail_viewpage"
         android:layout_width="match_parent"
-        android:layout_height="200dp"/>
+        android:layout_height="240dp"
+        app:canLoop="true"/>
 
         <LinearLayout
             android:layout_width="wrap_content"

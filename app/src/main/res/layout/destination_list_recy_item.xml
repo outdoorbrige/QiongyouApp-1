@@ -25,7 +25,7 @@
                     android:id="@+id/destina_list_recy_simview"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:placeholderImage="@mipmap/ic_launcher"
+                    app:placeholderImage="@mipmap/zbg_cover_def_small9"
                     app:viewAspectRatio="0.8" />
 
                 <LinearLayout

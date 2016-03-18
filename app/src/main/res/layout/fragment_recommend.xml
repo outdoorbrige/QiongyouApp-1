@@ -39,7 +39,7 @@
                     android:id="@+id/bottom_img"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:src="@mipmap/ic_launcher" />
+                    android:src="@mipmap/zbg_cover_def_small9" />
             </LinearLayout>
         </com.example.xiaohan_lh.qiongyouapp.customize.BottomScrollView>
 </com.example.xiaohan_lh.qiongyouapp.customize.RefreshLayout>

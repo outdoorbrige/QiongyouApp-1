@@ -2,6 +2,7 @@ package com.example.xiaohan_lh.qiongyouapp.presenter.impl;
 
 import android.view.View;
 
+import com.example.xiaohan_lh.qiongyouapp.bean.CityDetailResponseEntity;
 import com.example.xiaohan_lh.qiongyouapp.bean.CountryResponseEntity;
 import com.example.xiaohan_lh.qiongyouapp.bean.DestinationEntity;
 import com.example.xiaohan_lh.qiongyouapp.bean.HotListRecommendEntity;
@@ -12,6 +13,7 @@ import com.example.xiaohan_lh.qiongyouapp.model.impl.TabModelImpl;
 import com.example.xiaohan_lh.qiongyouapp.presenter.TabPresenter;
 import com.example.xiaohan_lh.qiongyouapp.utils.AppConnector;
 import com.example.xiaohan_lh.qiongyouapp.view.BaseView;
+import com.example.xiaohan_lh.qiongyouapp.view.CityDetailView;
 import com.example.xiaohan_lh.qiongyouapp.view.CommunityView;
 import com.example.xiaohan_lh.qiongyouapp.view.CountryDetailView;
 import com.example.xiaohan_lh.qiongyouapp.view.DestinationView;
@@ -113,9 +115,26 @@ public class TabPresenterImpl implements TabPresenter {
 
             @Override
             public void onFailure(Call<CountryResponseEntity> call, Throwable t) {
-
+                view.fail(t);
             }
         };
         tabModel.countryDetail(callback,countryid);
+    }
+
+    @Override
+    public void getCityDetail(final String cityid) {
+        final Callback<CityDetailResponseEntity> callback = new Callback<CityDetailResponseEntity>() {
+            @Override
+            public void onResponse(Call<CityDetailResponseEntity> call, Response<CityDetailResponseEntity> response) {
+                CityDetailResponseEntity cityDetailResponseEntity =response.body();
+                ((CityDetailView)view).citydelSuccess(cityDetailResponseEntity);
+            }
+
+            @Override
+            public void onFailure(Call<CityDetailResponseEntity> call, Throwable t) {
+                view.fail(t);
+            }
+        };
+        tabModel.cityDetail(callback,cityid);
     }
 }

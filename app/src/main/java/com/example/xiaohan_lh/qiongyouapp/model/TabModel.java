@@ -1,5 +1,6 @@
 package com.example.xiaohan_lh.qiongyouapp.model;
 
+import com.example.xiaohan_lh.qiongyouapp.bean.CityDetailResponseEntity;
 import com.example.xiaohan_lh.qiongyouapp.bean.CountryResponseEntity;
 import com.example.xiaohan_lh.qiongyouapp.bean.DestinationEntity;
 import com.example.xiaohan_lh.qiongyouapp.bean.HotListRecommendEntity;
@@ -19,4 +20,5 @@ public interface TabModel {
     public void community(Callback<TabCommunityEntity> callback);
     public void hotListRecommend(Callback<HotListRecommendEntity> callback,String page);
     public void countryDetail(Callback<CountryResponseEntity> callback,String countryid);
+    public void cityDetail(Callback<CityDetailResponseEntity> callback,String cityid);
 }
