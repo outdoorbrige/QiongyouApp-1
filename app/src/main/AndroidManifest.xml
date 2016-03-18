@@ -21,6 +21,9 @@
         <activity android:name=".ui.CountryDetailActivity" />
         <activity android:name=".ui.MapActivity" />
         <activity android:name=".ui.CityDetailActivity"></activity>
+        <activity android:name=".ui.CountryDetailActivity" />
+        <activity android:name=".ui.WebActivity" />
+        <activity android:name=".ui.NextStationActivity"></activity>
     </application>
 
 </manifest>

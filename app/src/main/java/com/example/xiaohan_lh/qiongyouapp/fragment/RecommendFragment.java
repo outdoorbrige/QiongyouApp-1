@@ -2,6 +2,8 @@ package com.example.xiaohan_lh.qiongyouapp.fragment;
 
 
 import android.content.Context;
+import android.content.Intent;
+import android.graphics.drawable.AnimationDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -19,6 +21,7 @@ import android.widget.Toast;
 import com.bigkoo.convenientbanner.ConvenientBanner;
 import com.bigkoo.convenientbanner.holder.CBViewHolderCreator;
 import com.bigkoo.convenientbanner.holder.Holder;
+import com.bigkoo.convenientbanner.listener.OnItemClickListener;
 import com.example.xiaohan_lh.qiongyouapp.R;
 import com.example.xiaohan_lh.qiongyouapp.adapter.ListViewForScrollViewAdapter;
 import com.example.xiaohan_lh.qiongyouapp.adapter.SaleGridAdapter;
@@ -30,13 +33,15 @@ import com.example.xiaohan_lh.qiongyouapp.customize.ImageTxtView;
 import com.example.xiaohan_lh.qiongyouapp.customize.ListViewForScrollView;
 import com.example.xiaohan_lh.qiongyouapp.customize.RefreshLayout;
 import com.example.xiaohan_lh.qiongyouapp.presenter.impl.TabPresenterImpl;
+import com.example.xiaohan_lh.qiongyouapp.ui.NextStationActivity;
+import com.example.xiaohan_lh.qiongyouapp.ui.WebActivity;
+import com.example.xiaohan_lh.qiongyouapp.utils.AppConnector;
 import com.example.xiaohan_lh.qiongyouapp.view.HotListView;
 import com.example.xiaohan_lh.qiongyouapp.view.RecommendView;
 import com.facebook.drawee.view.SimpleDraweeView;
 
 import java.util.ArrayList;
 import java.util.List;
-
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -86,6 +91,8 @@ public class RecommendFragment extends Fragment implements RecommendView, HotLis
     ConvenientBanner convenientPager;
     @Bind(R.id.punchIn_btn)
     ImageButton punchInBtn;
+    @Bind(R.id.bottom_layout)
+    LinearLayout bottomLayout;
     private int page = 1;
     private List<HotListRecommendEntity.DataEntity> hotListdataEntities = new ArrayList<>();
     private ListViewForScrollViewAdapter listViewForScrollViewAdapter;
@@ -113,15 +120,48 @@ public class RecommendFragment extends Fragment implements RecommendView, HotLis
     private void init() {
         saleGrid.setFocusable(false);
         listLayout.setVisibility(View.GONE);
+        AnimationDrawable animationDrawable = (AnimationDrawable) bottomImg.getDrawable();
+        animationDrawable.start();
+        nextStationBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), NextStationActivity.class);
+                startActivity(intent);
+            }
+        });
+        punchInBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle bundle = new Bundle();
+                bundle.putString("url", AppConnector.Recommend.MILEAGE_RECOMMEDN);
+                Intent intent = new Intent(getContext(),WebActivity.class);
+                intent.putExtra("bundle",bundle);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
-    public void RecommenndSueccess(TabRecommendEntity tabRecommendEntity) {
-        List<TabRecommendEntity.DataEntity.SubjectEntity> nextStationContent = tabRecommendEntity.getData().getSubject();
+    public void RecommenndSueccess(final TabRecommendEntity tabRecommendEntity) {
+        final List<TabRecommendEntity.DataEntity.SubjectEntity> nextStationContent = tabRecommendEntity.getData().getSubject();
         nextStationHead.setImageURI(Uri.parse(nextStationContent.get(0).getPhoto()));
         nextStationContentLeft.setImageURI(Uri.parse(nextStationContent.get(1).getPhoto()));
         nextStationContentRight.setImageURI(Uri.parse(nextStationContent.get(2).getPhoto()));
+        initSetListener(nextStationContent.get(0), nextStationHead);
+        initSetListener(nextStationContent.get(1), nextStationContentLeft);
+        initSetListener(nextStationContent.get(2), nextStationContentRight);
         saleHeadImg.setImageURI(Uri.parse(tabRecommendEntity.getData().getDiscount_subject().get(0).getPhoto()));
+        saleHeadImg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle bundle = new Bundle();
+                TabRecommendEntity.DataEntity.DiscountSubjectEntity discountSubjectEntity = tabRecommendEntity.getData().getDiscount_subject().get(0);
+                bundle.putString("url",discountSubjectEntity.getUrl());
+                Intent intent = new Intent(getContext(),WebActivity.class);
+                intent.putExtra("bundle",bundle);
+                startActivity(intent);
+            }
+        });
         SaleGridAdapter saleGridAdapter = new SaleGridAdapter(tabRecommendEntity.getData().getDiscount(), getContext());
         saleGrid.setAdapter(saleGridAdapter);
         listViewForScrollViewAdapter = new ListViewForScrollViewAdapter(getContext(), hotListdataEntities);
@@ -137,20 +177,44 @@ public class RecommendFragment extends Fragment implements RecommendView, HotLis
         initConvenientPager(slide);
     }
 
-    private void initConvenientPager(List<TabRecommendEntity.DataEntity.SlideEntity> slide) {
+    private void initSetListener(final TabRecommendEntity.DataEntity.SubjectEntity subjectEntity, View view) {
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle bundle = new Bundle();
+                bundle.putString("url", subjectEntity.getUrl());
+                bundle.putString("title",subjectEntity.getTitle());
+                Intent intent = new Intent(getContext(), WebActivity.class);
+                intent.putExtra("bundle", bundle);
+                startActivity(intent);
+            }
+        });
+    }
+
+    private void initConvenientPager(final List<TabRecommendEntity.DataEntity.SlideEntity> slide) {
         List<String> list = new ArrayList<>();
         for (int i = 0; i < slide.size(); i++) {
             list.add(slide.get(i).getPhoto());
         }
-        convenientPager.setPages(new CBViewHolderCreator<LocalImageHolderView>(){
+        convenientPager.setPages(new CBViewHolderCreator<LocalImageHolderView>() {
 
             @Override
             public LocalImageHolderView createHolder() {
                 return new LocalImageHolderView();
             }
-        },list);
+        }, list);
         convenientPager.setPageIndicator(new int[]{R.drawable.pager_flase, R.drawable.pager_true});
         convenientPager.startTurning(5000);
+        convenientPager.setOnItemClickListener(new OnItemClickListener() {
+            @Override
+            public void onItemClick(int position) {
+                Bundle bundle = new Bundle();
+                bundle.putString("url", slide.get(position).getUrl());
+                Intent intent = new Intent(getContext(), WebActivity.class);
+                intent.putExtra("bundle", bundle);
+                startActivity(intent);
+            }
+        });
     }
 
 
@@ -174,8 +238,8 @@ public class RecommendFragment extends Fragment implements RecommendView, HotLis
                 if (page < 6) {
                     new TabPresenterImpl(RecommendFragment.this).getHotListRecommend(page + "");
                     page++;
-                    if (page==5&&bottomImg.getVisibility() == View.VISIBLE) {
-                        bottomImg.setVisibility(View.GONE);
+                    if (page == 5 && bottomLayout.getVisibility() == View.VISIBLE) {
+                        bottomLayout.setVisibility(View.GONE);
                     }
                 }
             }
@@ -206,6 +270,7 @@ public class RecommendFragment extends Fragment implements RecommendView, HotLis
 
     public class LocalImageHolderView implements Holder<String> {
         private SimpleDraweeView simpleDraweeView;
+
         @Override
         public View createView(Context context) {
             simpleDraweeView = new SimpleDraweeView(context);

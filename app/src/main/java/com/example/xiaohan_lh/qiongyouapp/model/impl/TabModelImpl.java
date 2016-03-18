@@ -1,10 +1,10 @@
 package com.example.xiaohan_lh.qiongyouapp.model.impl;
 
 import com.example.xiaohan_lh.qiongyouapp.api.RetrofitServerApi;
-import com.example.xiaohan_lh.qiongyouapp.bean.CityDetailResponseEntity;
 import com.example.xiaohan_lh.qiongyouapp.bean.CountryResponseEntity;
 import com.example.xiaohan_lh.qiongyouapp.bean.DestinationEntity;
 import com.example.xiaohan_lh.qiongyouapp.bean.HotListRecommendEntity;
+import com.example.xiaohan_lh.qiongyouapp.bean.NextStationEntity;
 import com.example.xiaohan_lh.qiongyouapp.bean.TabCommunityEntity;
 import com.example.xiaohan_lh.qiongyouapp.bean.TabDestinationEntity;
 import com.example.xiaohan_lh.qiongyouapp.bean.TabRecommendEntity;
@@ -58,5 +58,10 @@ public class TabModelImpl implements TabModel {
     @Override
     public void cityDetail(Callback<CityDetailResponseEntity> callback, String cityid) {
         retrofitServer.getCityDetail(cityid).enqueue(callback);
+    }
+
+    @Override
+    public void nextStation(Callback<NextStationEntity> callback, String page) {
+        retrofitServer.getNextStation(page).enqueue(callback);
     }
 }

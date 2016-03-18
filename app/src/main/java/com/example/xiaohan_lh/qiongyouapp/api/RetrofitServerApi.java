@@ -4,6 +4,7 @@ import com.example.xiaohan_lh.qiongyouapp.bean.CityDetailResponseEntity;
 import com.example.xiaohan_lh.qiongyouapp.bean.CountryResponseEntity;
 import com.example.xiaohan_lh.qiongyouapp.bean.DestinationEntity;
 import com.example.xiaohan_lh.qiongyouapp.bean.HotListRecommendEntity;
+import com.example.xiaohan_lh.qiongyouapp.bean.NextStationEntity;
 import com.example.xiaohan_lh.qiongyouapp.bean.TabCommunityEntity;
 import com.example.xiaohan_lh.qiongyouapp.bean.TabDestinationEntity;
 import com.example.xiaohan_lh.qiongyouapp.bean.TabRecommendEntity;
@@ -31,5 +32,7 @@ public interface RetrofitServerApi {
     Call<CountryResponseEntity> getContryDetail(@Query("country_id") String country_id);
     @GET(AppConnector.Detail.CITY_DETAIL)
     Call<CityDetailResponseEntity> getCityDetail(@Query("city_id") String city_id);
+    @GET(AppConnector.Recommend.NEXTSTATION_RECOMMEND)
+    Call<NextStationEntity> getNextStation(@Query("page") String page);
 
 }

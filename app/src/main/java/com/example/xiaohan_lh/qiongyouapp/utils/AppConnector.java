@@ -12,6 +12,8 @@ public class AppConnector {
     }
     public static class Recommend{
         public static final String LIST_RECOMMEND = "/qyer/recommands/trip?client_id=qyer_android&client_secret=9fcaae8aefc4f9ac4915&v=1&track_deviceid=863784027041925&track_app_version=6.8.5&track_app_channel=360m&track_device_info=NX507J&track_os=Android4.4.2&app_installtime=1457922803165&lat=31.378791&lon=121.491697&type=index&count=10";
+        public static final String NEXTSTATION_RECOMMEND = "/qyer/special/topic/special_list?client_id=qyer_android&client_secret=9fcaae8aefc4f9ac4915&v=1&track_user_id=7634302&track_deviceid=863784027041925&track_app_version=6.8.5&track_app_channel=360m&track_device_info=NX507J&track_os=Android4.4.2&app_installtime=1457922803165&lat=31.378815&lon=121.491693&oauth_token=a7f7fbe9980ed6fdaa2a20db48d53ceb&count=10";
+        public static final String MILEAGE_RECOMMEDN = "http://appview.qyer.com/mileage/sign/sign?track_deviceid=863784027041925&client_id=qyer_android&track_app_version=6.8.5";
     }
 
     public static class Detail{
