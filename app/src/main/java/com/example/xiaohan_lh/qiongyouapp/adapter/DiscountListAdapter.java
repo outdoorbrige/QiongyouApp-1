@@ -66,9 +66,11 @@ public class DiscountListAdapter extends BaseAdapter {
                 s = departureEntities.get(position).getCity_des();
                 break;
             case DiscountActivity.END_TYPE:
+                List<DiscountRecommendEntity.DataEntity.PoiEntity> poiEntities = (List<DiscountRecommendEntity.DataEntity.PoiEntity>) list;
+                s = poiEntities.get(position).getContinent_name();
                 break;
             case DiscountActivity.TIME_TYPE:
-                List<DiscountRecommendEntity.DataEntity.TimesDrangeEntity> timesDrangeEntities = (List<DiscountRecommendEntity.DataEntity.TimesDrangeEntity>) list;
+                List<DiscountRecommendEntity.DataEntity.TimesDrangeEntity> timesDrangeEntities = (List<DiscountRecommendEntity.DataEntity.TimesDrangeEntity>) this.list;
                 s = timesDrangeEntities.get(position).getDescription();
                 break;
         }

@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:orientation="vertical"
     android:layout_height="match_parent"
     tools:context="com.example.xiaohan_lh.qiongyouapp.ui.DiscountActivity">
     <android.support.v7.widget.Toolbar
@@ -10,7 +11,6 @@
         android:layout_height="?attr/actionBarSize">
     </android.support.v7.widget.Toolbar>
    <RadioGroup
-       android:layout_below="@id/toolbar_discount"
        android:id="@+id/radio_discount"
        android:background="@color/write"
        android:paddingTop="13dp"
@@ -27,10 +27,10 @@
            android:button="@null"
            android:textColor="@drawable/discount_rb_color"
            android:layout_weight="1"/>
-       <View
-           android:background="@color/gray"
-           android:layout_width="1dp"
-           android:layout_height="match_parent"/>
+       <!--<View-->
+           <!--android:background="@color/gray"-->
+           <!--android:layout_width="1dp"-->
+           <!--android:layout_height="match_parent"/>-->
        <RadioButton
            android:id="@+id/discount_start"
            android:gravity="center_horizontal"
@@ -38,12 +38,11 @@
            android:layout_height="wrap_content"
            android:text="出发地 ∨"
            android:button="@null"
-           android:textColor="@drawable/discount_rb_color"
            android:layout_weight="1"/>
-       <View
-           android:background="@color/gray"
-           android:layout_width="1dp"
-           android:layout_height="match_parent"/>
+       <!--<View-->
+           <!--android:background="@color/gray"-->
+           <!--android:layout_width="1dp"-->
+           <!--android:layout_height="match_parent"/>-->
        <RadioButton
            android:id="@+id/discount_end"
            android:layout_width="wrap_content"
@@ -51,12 +50,11 @@
            android:gravity="center_horizontal"
            android:text="目的地 ∨"
            android:button="@null"
-           android:textColor="@drawable/discount_rb_color"
            android:layout_weight="1"/>
-       <View
-           android:background="@color/gray"
-           android:layout_width="1dp"
-           android:layout_height="match_parent"/>
+       <!--<View-->
+           <!--android:background="@color/gray"-->
+           <!--android:layout_width="1dp"-->
+           <!--android:layout_height="match_parent"/>-->
        <RadioButton
            android:id="@+id/discount_time"
            android:layout_width="wrap_content"
@@ -64,18 +62,11 @@
            android:layout_weight="1"
            android:gravity="center_horizontal"
            android:text="旅行时间 ∨"
-           android:textColor="@drawable/discount_rb_color"
            android:button="@null"/>
    </RadioGroup>
     <android.support.v7.widget.RecyclerView
-        android:layout_below="@id/radio_discount"
         android:id="@+id/recycler_discount"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
-    <RelativeLayout
-        android:id="@+id/content_discount_list"
-        android:layout_below="@id/radio_discount"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
 
-</RelativeLayout>
+</LinearLayout>

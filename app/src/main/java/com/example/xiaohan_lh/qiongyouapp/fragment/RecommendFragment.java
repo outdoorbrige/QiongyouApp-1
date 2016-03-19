@@ -34,6 +34,7 @@ import com.example.xiaohan_lh.qiongyouapp.customize.ImageTxtView;
 import com.example.xiaohan_lh.qiongyouapp.customize.ListViewForScrollView;
 import com.example.xiaohan_lh.qiongyouapp.customize.RefreshLayout;
 import com.example.xiaohan_lh.qiongyouapp.presenter.impl.TabPresenterImpl;
+import com.example.xiaohan_lh.qiongyouapp.ui.DiscountActivity;
 import com.example.xiaohan_lh.qiongyouapp.ui.NextStationActivity;
 import com.example.xiaohan_lh.qiongyouapp.ui.WebActivity;
 import com.example.xiaohan_lh.qiongyouapp.utils.AppConnector;
@@ -140,10 +141,11 @@ public class RecommendFragment extends Fragment implements RecommendView, HotLis
                 startActivity(intent);
             }
         });
-        saleGrid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        saleItv.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), DiscountActivity.class);
+                startActivity(intent);
             }
         });
     }

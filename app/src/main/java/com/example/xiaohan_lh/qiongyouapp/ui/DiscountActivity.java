@@ -5,12 +5,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.ListPopupWindow;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.ViewGroup;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.example.xiaohan_lh.qiongyouapp.R;
+import com.example.xiaohan_lh.qiongyouapp.adapter.DiscountListAdapter;
 import com.example.xiaohan_lh.qiongyouapp.bean.DiscountRecommendEntity;
 import com.example.xiaohan_lh.qiongyouapp.presenter.impl.TabPresenterImpl;
 import com.example.xiaohan_lh.qiongyouapp.view.DiscountView;
@@ -35,8 +37,6 @@ public class DiscountActivity extends AppCompatActivity implements DiscountView 
     @Bind(R.id.radio_discount)
     RadioGroup radioDiscount;
     @Bind(R.id.recycler_discount)
-    RecyclerView recyclerDiscount;
-    @Bind(R.id.content_discount_list)
     RelativeLayout contentDiscountList;
     private Map<String, String> map = new HashMap<>();
     private ListPopupWindow listPopupWindow;
@@ -58,11 +58,30 @@ public class DiscountActivity extends AppCompatActivity implements DiscountView 
     }
 
     @Override
-    public void discountSueccess(DiscountRecommendEntity discountRecommendEntity) {
+    public void discountSueccess(final DiscountRecommendEntity discountRecommendEntity) {
+        listPopupWindow = new ListPopupWindow(this);
+        listPopupWindow.setWidth(ViewGroup.LayoutParams.MATCH_PARENT);
+        listPopupWindow.setHeight(ViewGroup.LayoutParams.WRAP_CONTENT);
         radioDiscount.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
-
+                DiscountListAdapter adapter = null;
+                switch (checkedId){
+                    case R.id.discount_all:
+                        adapter = new DiscountListAdapter(discountRecommendEntity.getData().getType(), DiscountActivity.this, CALL_TYPE);
+                        break;
+                    case R.id.discount_start:
+                        adapter = new DiscountListAdapter(discountRecommendEntity.getData().getDeparture(),DiscountActivity.this,START_TYPE);
+                        break;
+                    case R.id.discount_end:
+                        adapter = new DiscountListAdapter(discountRecommendEntity.getData().getPoi(),DiscountActivity.this,END_TYPE);
+                        break;
+                    case R.id.discount_time:
+                        adapter = new DiscountListAdapter(discountRecommendEntity.getData().getTimes_drange(),DiscountActivity.this,TIME_TYPE);
+                }
+                if(adapter!=null) {
+                    listPopupWindow.setAdapter(adapter);
+                }
             }
         });
 

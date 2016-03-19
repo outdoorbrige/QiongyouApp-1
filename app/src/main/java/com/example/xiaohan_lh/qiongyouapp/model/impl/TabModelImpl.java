@@ -1,6 +1,7 @@
 package com.example.xiaohan_lh.qiongyouapp.model.impl;
 
 import com.example.xiaohan_lh.qiongyouapp.api.RetrofitServerApi;
+import com.example.xiaohan_lh.qiongyouapp.bean.CityDetailResponseEntity;
 import com.example.xiaohan_lh.qiongyouapp.bean.CountryResponseEntity;
 import com.example.xiaohan_lh.qiongyouapp.bean.DestinationEntity;
 import com.example.xiaohan_lh.qiongyouapp.bean.DiscountRecommendEntity;

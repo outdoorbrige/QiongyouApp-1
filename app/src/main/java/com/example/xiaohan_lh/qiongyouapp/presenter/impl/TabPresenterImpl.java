@@ -127,6 +127,11 @@ public class TabPresenterImpl implements TabPresenter {
     }
 
     @Override
+    public void getCityDetail(String cityid) {
+
+    }
+
+    @Override
     public void getNextstation(String page) {
         Callback<NextStationEntity> callback = new Callback<NextStationEntity>() {
             @Override
