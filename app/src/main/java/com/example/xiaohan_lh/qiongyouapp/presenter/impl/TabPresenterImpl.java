@@ -5,6 +5,7 @@ import android.widget.Toast;
 
 import com.example.xiaohan_lh.qiongyouapp.bean.CountryResponseEntity;
 import com.example.xiaohan_lh.qiongyouapp.bean.DestinationEntity;
+import com.example.xiaohan_lh.qiongyouapp.bean.DiscountRecommendEntity;
 import com.example.xiaohan_lh.qiongyouapp.bean.HotListRecommendEntity;
 import com.example.xiaohan_lh.qiongyouapp.bean.NextStationEntity;
 import com.example.xiaohan_lh.qiongyouapp.bean.TabCommunityEntity;
@@ -17,9 +18,12 @@ import com.example.xiaohan_lh.qiongyouapp.view.BaseView;
 import com.example.xiaohan_lh.qiongyouapp.view.CommunityView;
 import com.example.xiaohan_lh.qiongyouapp.view.CountryDetailView;
 import com.example.xiaohan_lh.qiongyouapp.view.DestinationView;
+import com.example.xiaohan_lh.qiongyouapp.view.DiscountView;
 import com.example.xiaohan_lh.qiongyouapp.view.HotListView;
 import com.example.xiaohan_lh.qiongyouapp.view.NextStationView;
 import com.example.xiaohan_lh.qiongyouapp.view.RecommendView;
+
+import java.util.Map;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -137,5 +141,22 @@ public class TabPresenterImpl implements TabPresenter {
             }
         };
         tabModel.nextStation(callback,page);
+    }
+
+    @Override
+    public void getDiscountRecommend(Map<String, String> map) {
+        Callback<DiscountRecommendEntity> callback = new Callback<DiscountRecommendEntity>() {
+            @Override
+            public void onResponse(Call<DiscountRecommendEntity> call, Response<DiscountRecommendEntity> response) {
+                DiscountRecommendEntity discountRecommendEntity = response.body();
+                ((DiscountView) view).discountSueccess(discountRecommendEntity);
+            }
+
+            @Override
+            public void onFailure(Call<DiscountRecommendEntity> call, Throwable t) {
+                view.fail(t);
+            }
+        };
+        tabModel.discount(callback,map);
     }
 }

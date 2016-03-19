@@ -4,6 +4,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
@@ -52,11 +53,22 @@ public class WebActivity extends AppCompatActivity {
             }
         });
         setSupportActionBar(webToolbar);
+
     }
 
-    @Override
+
+        @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_web,menu);
         return true;
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if ((keyCode == KeyEvent.KEYCODE_BACK) && webView.canGoBack()) {
+            webView.goBack(); //goBack()表示返回WebView的上一页面
+            return true;
+        }
+        return super.onKeyDown(keyCode,event);
     }
 }

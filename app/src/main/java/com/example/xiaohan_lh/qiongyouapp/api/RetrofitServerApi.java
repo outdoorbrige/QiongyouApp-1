@@ -2,18 +2,20 @@ package com.example.xiaohan_lh.qiongyouapp.api;
 
 import com.example.xiaohan_lh.qiongyouapp.bean.CountryResponseEntity;
 import com.example.xiaohan_lh.qiongyouapp.bean.DestinationEntity;
+import com.example.xiaohan_lh.qiongyouapp.bean.DiscountRecommendEntity;
 import com.example.xiaohan_lh.qiongyouapp.bean.HotListRecommendEntity;
 import com.example.xiaohan_lh.qiongyouapp.bean.NextStationEntity;
 import com.example.xiaohan_lh.qiongyouapp.bean.TabCommunityEntity;
-import com.example.xiaohan_lh.qiongyouapp.bean.TabDestinationEntity;
 import com.example.xiaohan_lh.qiongyouapp.bean.TabRecommendEntity;
 import com.example.xiaohan_lh.qiongyouapp.utils.AppConnector;
 
+import java.util.Map;
+
 import retrofit2.Call;
-import retrofit2.Callback;
 import retrofit2.http.GET;
-import retrofit2.http.Path;
+import retrofit2.http.POST;
 import retrofit2.http.Query;
+import retrofit2.http.QueryMap;
 
 /**
  * Created by xiaohan-lh on 16/3/14.
@@ -31,5 +33,7 @@ public interface RetrofitServerApi {
     Call<CountryResponseEntity> getContryDetail(@Query("country_id") String country_id);
     @GET(AppConnector.Recommend.NEXTSTATION_RECOMMEND)
     Call<NextStationEntity> getNextStation(@Query("page") String page);
+    @POST(AppConnector.Recommend.LIST_DISCOUNT_RECOMMEND)
+    Call<DiscountRecommendEntity> getDiscountRecommend(@QueryMap Map<String,String> map);
 
 }

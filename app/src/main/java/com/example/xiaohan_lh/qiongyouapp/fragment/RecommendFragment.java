@@ -12,6 +12,7 @@ import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -139,6 +140,12 @@ public class RecommendFragment extends Fragment implements RecommendView, HotLis
                 startActivity(intent);
             }
         });
+        saleGrid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+            }
+        });
     }
 
     @Override
@@ -175,6 +182,17 @@ public class RecommendFragment extends Fragment implements RecommendView, HotLis
         swipeLayout.setRefreshing(false);
         List<TabRecommendEntity.DataEntity.SlideEntity> slide = tabRecommendEntity.getData().getSlide();
         initConvenientPager(slide);
+        saleGrid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                int discountId = tabRecommendEntity.getData().getDiscount().get(position).getId();
+                Bundle bundle = new Bundle();
+                bundle.putString("url","http://z.qyer.com/deal/"+discountId);
+                Intent intent = new Intent(getContext(),WebActivity.class);
+                intent.putExtra("bundle",bundle);
+                startActivity(intent);
+            }
+        });
     }
 
     private void initSetListener(final TabRecommendEntity.DataEntity.SubjectEntity subjectEntity, View view) {
@@ -247,14 +265,24 @@ public class RecommendFragment extends Fragment implements RecommendView, HotLis
     }
 
     @Override
-    public void hotLiveViewSueccess(HotListRecommendEntity hotListRecommendEntity) {
-        List<HotListRecommendEntity.DataEntity> dataEntities = hotListRecommendEntity.getData();
+    public void hotLiveViewSueccess(final HotListRecommendEntity hotListRecommendEntity) {
+        final List<HotListRecommendEntity.DataEntity> dataEntities = hotListRecommendEntity.getData();
         hotListdataEntities.addAll(dataEntities);
         listViewForScrollViewAdapter.notifyDataSetChanged();
         if (listLayout.getVisibility() == View.GONE) {
             listLayout.setVisibility(View.VISIBLE);
         }
         isLoading = false;
+        listRecommendItem.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Bundle bundle = new Bundle();
+                bundle.putString("url",hotListdataEntities.get(position).getView_author_url());
+                Intent intent = new Intent(getContext(),WebActivity.class);
+                intent.putExtra("bundle",bundle);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override

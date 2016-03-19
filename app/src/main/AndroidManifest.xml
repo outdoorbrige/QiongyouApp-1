@@ -20,7 +20,12 @@
         </activity>
         <activity android:name=".ui.CountryDetailActivity" />
         <activity android:name=".ui.WebActivity" />
-        <activity android:name=".ui.NextStationActivity"></activity>
+        <activity android:name=".ui.NextStationActivity" />
+        <activity
+            android:name=".ui.SginInActivity"
+            android:label="@string/title_activity_sgin_in"
+            android:theme="@style/AppTheme" />
+        <activity android:name=".ui.DiscountActivity"></activity>
     </application>
 
 </manifest>

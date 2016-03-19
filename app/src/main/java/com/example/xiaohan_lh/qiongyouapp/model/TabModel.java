@@ -2,11 +2,14 @@ package com.example.xiaohan_lh.qiongyouapp.model;
 
 import com.example.xiaohan_lh.qiongyouapp.bean.CountryResponseEntity;
 import com.example.xiaohan_lh.qiongyouapp.bean.DestinationEntity;
+import com.example.xiaohan_lh.qiongyouapp.bean.DiscountRecommendEntity;
 import com.example.xiaohan_lh.qiongyouapp.bean.HotListRecommendEntity;
 import com.example.xiaohan_lh.qiongyouapp.bean.NextStationEntity;
 import com.example.xiaohan_lh.qiongyouapp.bean.TabCommunityEntity;
 import com.example.xiaohan_lh.qiongyouapp.bean.TabDestinationEntity;
 import com.example.xiaohan_lh.qiongyouapp.bean.TabRecommendEntity;
+
+import java.util.Map;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -21,4 +24,5 @@ public interface TabModel {
     public void hotListRecommend(Callback<HotListRecommendEntity> callback,String page);
     public void countryDetail(Callback<CountryResponseEntity> callback,String countryid);
     public void nextStation(Callback<NextStationEntity> callback,String page);
+    public void discount(Callback<DiscountRecommendEntity> callback,Map<String,String> map);
 }
