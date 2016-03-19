@@ -11,6 +11,7 @@ public interface TabPresenter {
     public void getCommunity();
     public void getHotListRecommend(String page);
     public void getCountryDetail(String countryid);
+    public void getCityDetail(String cityid);
     public void getNextstation(String page);
     public void getDiscountRecommend(Map<String,String> map);
 }

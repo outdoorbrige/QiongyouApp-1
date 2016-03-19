@@ -9,7 +9,7 @@
         android:id="@+id/country_detail_list_item_simview"
         android:layout_width="120dp"
         android:layout_height="wrap_content"
-        app:placeholderImage="@mipmap/ic_launcher"
+        app:placeholderImage="@mipmap/zbg_cover_def_small9"
         app:viewAspectRatio="1.25" />
 
     <TextView

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <Button
+        android:id="@+id/country_detail_wantgo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="2"
+        android:background="@color/write"
+        android:drawableLeft="@drawable/heartselect"
+        android:text="添加到我的想去" />
+
+    <RadioGroup
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="3"
+        android:background="@color/write"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/country_detail_friends"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/write"
+            android:button="@null"
+            android:checked="false"
+            android:drawableLeft="@mipmap/ic_dest_mate"
+            android:gravity="center_horizontal"
+            android:padding="22dp"
+            android:text="结伴" />
+
+        <RadioButton
+            android:id="@+id/country_detail_ask"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/write"
+            android:button="@null"
+            android:drawableLeft="@mipmap/ic_dest_ask"
+            android:gravity="center_horizontal"
+            android:padding="22dp"
+            android:text="问答" />
+
+    </RadioGroup>
+
+
+</LinearLayout>

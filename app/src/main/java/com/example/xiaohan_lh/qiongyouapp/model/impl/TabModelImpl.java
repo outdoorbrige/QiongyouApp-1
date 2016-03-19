@@ -59,6 +59,11 @@ public class TabModelImpl implements TabModel {
     }
 
     @Override
+    public void cityDetail(Callback<CityDetailResponseEntity> callback, String cityid) {
+        retrofitServer.getCityDetail(cityid).enqueue(callback);
+    }
+
+    @Override
     public void nextStation(Callback<NextStationEntity> callback, String page) {
         retrofitServer.getNextStation(page).enqueue(callback);
     }
