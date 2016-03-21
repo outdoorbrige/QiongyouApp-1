@@ -8,7 +8,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.ViewGroup;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.example.xiaohan_lh.qiongyouapp.R;
@@ -37,7 +36,7 @@ public class DiscountActivity extends AppCompatActivity implements DiscountView 
     @Bind(R.id.radio_discount)
     RadioGroup radioDiscount;
     @Bind(R.id.recycler_discount)
-    RelativeLayout contentDiscountList;
+    RecyclerView recyclerDiscount;
     private Map<String, String> map = new HashMap<>();
     private ListPopupWindow listPopupWindow;
     public static final int CALL_TYPE = 1;
@@ -66,20 +65,20 @@ public class DiscountActivity extends AppCompatActivity implements DiscountView 
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 DiscountListAdapter adapter = null;
-                switch (checkedId){
+                switch (checkedId) {
                     case R.id.discount_all:
                         adapter = new DiscountListAdapter(discountRecommendEntity.getData().getType(), DiscountActivity.this, CALL_TYPE);
                         break;
                     case R.id.discount_start:
-                        adapter = new DiscountListAdapter(discountRecommendEntity.getData().getDeparture(),DiscountActivity.this,START_TYPE);
+                        adapter = new DiscountListAdapter(discountRecommendEntity.getData().getDeparture(), DiscountActivity.this, START_TYPE);
                         break;
                     case R.id.discount_end:
-                        adapter = new DiscountListAdapter(discountRecommendEntity.getData().getPoi(),DiscountActivity.this,END_TYPE);
+                        adapter = new DiscountListAdapter(discountRecommendEntity.getData().getPoi(), DiscountActivity.this, END_TYPE);
                         break;
                     case R.id.discount_time:
-                        adapter = new DiscountListAdapter(discountRecommendEntity.getData().getTimes_drange(),DiscountActivity.this,TIME_TYPE);
+                        adapter = new DiscountListAdapter(discountRecommendEntity.getData().getTimes_drange(), DiscountActivity.this, TIME_TYPE);
                 }
-                if(adapter!=null) {
+                if (adapter != null) {
                     listPopupWindow.setAdapter(adapter);
                 }
             }
@@ -90,6 +89,6 @@ public class DiscountActivity extends AppCompatActivity implements DiscountView 
 
     @Override
     public void fail(Throwable t) {
-        Toast.makeText(this,"网络错误",Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "网络错误", Toast.LENGTH_SHORT).show();
     }
 }
